@@ -1,0 +1,33 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+Title=Pull angle 2,1 between $B$-jets, all constituents
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/bpull_21_all
+XLabel=$\phi(j^B_2, j^B_1) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^B_2,j^B_1)}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/bpull_21_all
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/bpull_21_all
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/bpull_21_all
+ScaledBy=8.55899675309951546e-06
+Title=ColourFlip
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.020425e+00	1.329456e-02	1.329456e-02
+1.666667e-01	3.333333e-01	1.010030e+00	1.330761e-02	1.330761e-02
+3.333333e-01	5.000000e-01	9.634060e-01	1.213986e-02	1.213986e-02
+5.000000e-01	6.666667e-01	9.933862e-01	1.313481e-02	1.313481e-02
+6.666667e-01	8.333333e-01	9.867886e-01	1.241914e-02	1.241914e-02
+8.333333e-01	1.000000e+00	1.025965e+00	1.384419e-02	1.384419e-02
+# END HISTO1D
+

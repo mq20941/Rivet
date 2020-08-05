@@ -1,0 +1,97 @@
+#! /usr/bin/env python
+"""\
+%(prog)s [-o outfile] <yodafile>
+  Create asymmetry histograms (normal and Marzani) from input YODA file. 
+  Takes difference of two histograms and plots as 2D Scatter. 
+"""
+
+import yoda, argparse, sys, math
+
+parser = argparse.ArgumentParser()
+parser.add_argument('inputfile', help="input yodafile")
+parser.add_argument("-o", "--output", default="-", dest="OUTPUT_FILE", metavar="PATH",
+                    help="write output to specified path")
+parser.add_argument("-n", "--normalize", dest="NORMALIZE_HISTOS", action='store_true',
+                    help="normalize asymm histograms")
+parser.add_argument("-N", "--no-normalize", dest="NORMALIZE_HISTOS", action='store_false',
+                    help="do not normalize asymm histograms, default setting")
+#parser.add_argument("-m", "--Marzani", dest="MARZANI", action='store_true',
+                    #help="create Marzani, weighted, asymmetry")
+#parser.add_argument("-M", "--no-Marzani", dest="MARZANI", action='store_false',
+                    #help="create normal asymmetry")
+parser.set_defaults(NORMALIZE_HISTOS=False)
+#parser.set_defaults(MARZANI=False)
+args = parser.parse_args()
+
+## Put the incoming objects into a dict from each path to a list of 1D Histograms 
+input = args.inputfile
+aos = yoda.read(input)
+h_perp_pos = {} ##create empty dict for each histogram type 
+h_perp_neg = {}
+h_para_pos = {}
+h_para_neg = {}
+for aopath, ao in aos.items(): ##items=keys:values
+    path = ao.annotation("Path")
+    if type(ao) is yoda.core.Histo1D:
+        if "pullvectorj1_perpproj_all_signed_pos" in path:
+                h_perp_pos[aopath] = ao
+        if "pullvectorj1_perpproj_all_signed_neg" in path:
+                h_perp_neg[aopath] = ao
+        if "pullvectorj1_paraproj_all_signed_pos" in path:
+                h_para_pos[aopath] = ao
+        if "pullvectorj1_paraproj_all_signed_neg" in path:
+                h_para_neg[aopath] = ao
+        
+s_perp_asymm = {}
+for k1, v1 in h_perp_pos.items():
+    for k2, v2 in h_perp_neg.items(): ##v1, v2 are members of class of 1D Histograms
+        path1 = v1.annotation("Path")
+        path2 = v2.annotation("Path")
+        path1 = path1.replace("_pos", "")
+        path2 = path2.replace("_neg", "")
+        if path1 == path2:
+            #v1.normalize()
+            #v2.normalize()
+            a = v1 - v2 ##subtracts bin areas (<=> bin heights)
+            patha = v1.annotation("Path")
+            patha = patha.replace("pullvectorj1_perpproj_all_signed_pos", "perpproj_asymm")
+            a.setAnnotation("Path", patha)
+            w = a.sumW()
+            A = a.mkScatter() ##takes height of each bin and converts to 2D scatter
+            points = A.points()
+            for p in points:
+                p.setErr(2,math.sqrt(abs(p.y()))) ##sets errors as sqrt(val) - treats as Poisson variable 
+            if args.NORMALIZE_HISTOS == True:
+                if a.integral() > 0 :
+                    A.scaleY(1/w)
+            s_perp_asymm[patha] = A
+
+s_para_asymm = {}
+for k1, v1 in h_para_pos.items():
+    for k2, v2 in h_para_neg.items(): ##v1, v2 are members of class of 1D Histograms
+        path1 = v1.annotation("Path")
+        path2 = v2.annotation("Path")
+        path1 = path1.replace("_pos", "")
+        path2 = path2.replace("_neg", "")
+        if path1 == path2:
+            #v1.normalize()
+            #v2.normalize()
+            a = v1 - v2
+            patha = v1.annotation("Path")
+            patha = patha.replace("pullvectorj1_paraproj_all_signed_pos", "paraproj_asymm")
+            a.setAnnotation("Path", patha)
+            w = a.sumW()
+            A = a.mkScatter() 
+            points = A.points()
+            for p in points:
+                p.setErr(2,math.sqrt(abs(p.y()))) 
+            if args.NORMALIZE_HISTOS == True:
+                if a.integral() > 0 :
+                    A.scaleY(1/w)
+            s_para_asymm[patha] = A
+
+s_perp_asymm.update(s_para_asymm)
+s_asymm = s_perp_asymm
+      
+## Write output
+yoda.write(s_asymm, args.OUTPUT_FILE)

@@ -1,0 +1,29 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+Title=Correlation between parallel pull projection and pull angle
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/paraproj_pull_angle_cor
+XLabel=$t_{\parallel}$
+YLabel=$\phi(j^W_1, j^W_2) / \pi$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/paraproj_pull_angle_cor
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/paraproj_pull_angle_cor
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/paraproj_pull_angle_cor
+Title=ColourFlip
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	3.333333e-03	2.768545e-01	7.466779e-04	7.466779e-04
+3.333333e-03	6.666667e-03	1.536875e-01	1.083603e-03	1.083603e-03
+6.666667e-03	1.000000e-02	1.092155e-01	1.893703e-03	1.893703e-03
+# END HISTO1D
+

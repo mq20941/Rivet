@@ -1,0 +1,52 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Title=(signed) Correlation between parallel pull projection and pull angle
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1_erdOn.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+XLabel=$t_{\parallel}$
+YLabel=$\phi(j^W_1, j^W_2) / \pi$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1_erdOn.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Title=CP5-CR1
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.000000e-02	-6.666667e-03	8.837681e-01	1.487835e-03	1.487835e-03
+-6.666667e-03	-3.333333e-03	8.461326e-01	8.508707e-04	8.508707e-04
+-3.333333e-03	0.000000e+00	7.214201e-01	5.635574e-04	5.635574e-04
+0.000000e+00	3.333333e-03	2.647605e-01	5.188411e-04	5.188411e-04
+3.333333e-03	6.666667e-03	1.466604e-01	7.258345e-04	7.258345e-04
+6.666667e-03	1.000000e-02	1.099670e-01	1.243243e-03	1.243243e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1_erdOn.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1_erdOn.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Title=CP5-CR1-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.000000e-02	-6.666667e-03	8.858754e-01	1.038526e-03	1.038526e-03
+-6.666667e-03	-3.333333e-03	8.457521e-01	5.890452e-04	5.890452e-04
+-3.333333e-03	0.000000e+00	7.224551e-01	3.861463e-04	3.861463e-04
+0.000000e+00	3.333333e-03	2.675421e-01	3.638268e-04	3.638268e-04
+3.333333e-03	6.666667e-03	1.484001e-01	5.189683e-04	5.189683e-04
+6.666667e-03	1.000000e-02	1.104170e-01	8.711974e-04	8.711974e-04
+# END HISTO1D
+

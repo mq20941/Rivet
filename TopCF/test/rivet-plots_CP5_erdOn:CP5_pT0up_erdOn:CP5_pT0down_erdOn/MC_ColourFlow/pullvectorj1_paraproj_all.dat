@@ -1,0 +1,68 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+Title=Magnitude of parallel projection of pull vector of highest p_t $W$-jet
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.05
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_pT0up_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_pT0down_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+XLabel=$|t_{\parallel}|$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}|t_{\parallel}|}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_pT0up_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_pT0down_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+Legend=1
+RatioPlotYMin=0.95
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+ScaledBy=8.77145175192347170e-09
+Title=CP5-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-03	2.984448e+02	6.321499e-01	6.321499e-01
+2.000000e-03	4.000000e-03	1.242945e+02	4.078815e-01	4.078815e-01
+4.000000e-03	6.000000e-03	4.916765e+01	2.566690e-01	2.566690e-01
+6.000000e-03	8.000000e-03	1.850000e+01	1.573556e-01	1.573556e-01
+8.000000e-03	1.000000e-02	6.812250e+00	9.552009e-02	9.552009e-02
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_pT0up_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_pT0up_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+ScaledBy=9.84966590010435370e-09
+Title=CP5-pT0up-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-03	3.109645e+02	6.839104e-01	6.839104e-01
+2.000000e-03	4.000000e-03	1.180400e+02	4.213014e-01	4.213014e-01
+4.000000e-03	6.000000e-03	4.440757e+01	2.584321e-01	2.584321e-01
+6.000000e-03	8.000000e-03	1.712318e+01	1.603852e-01	1.603852e-01
+8.000000e-03	1.000000e-02	6.566110e+00	9.947148e-02	9.947148e-02
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_pT0down_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+ErrorBars=1
+LineColor=green
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_pT0down_erdOn.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+ScaledBy=8.18459406112828144e-09
+Title=CP5-pT0down-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-03	2.912139e+02	6.030964e-01	6.030964e-01
+2.000000e-03	4.000000e-03	1.281817e+02	4.001461e-01	4.001461e-01
+4.000000e-03	6.000000e-03	5.157395e+01	2.536174e-01	2.536174e-01
+6.000000e-03	8.000000e-03	1.951398e+01	1.560799e-01	1.560799e-01
+8.000000e-03	1.000000e-02	6.905845e+00	9.277236e-02	9.277236e-02
+# END HISTO1D
+

@@ -1,0 +1,158 @@
+#! /usr/bin/env python
+
+"""\
+%prog: Copy/Publish Rivet plots to the Webserver
+
+Usage: %prog [--help|-h] --pag <PAG> --pubYear <YYYY> --cadiId <PAG-YY-XXX> [--spireId <InspireI>] --plotDir <directory>
+
+"""
+
+import os
+import subprocess
+import string
+
+import datetime
+def valYear(year):
+    try:
+        datetime.datetime.strptime(year, '%Y')
+    except:
+        return False
+    return True
+
+## Some Env cariables:
+PAGList=['FSQ','SMP','GEN','TOP','EXO','HIG','B2G','BPH','HIN','SUS']
+wwwDir='/eos/project/c/cmsweb/www/generators/Rivet/ValPlots/'
+indPHP='/eos/project/c/cmsweb/www/generators/Rivet/ValPlots/index.php'
+HttpBase='https://cms-rivet.web.cern.ch/cms-rivet/ValPlots/'
+
+## Handle command line:
+from optparse import OptionParser
+parser = OptionParser(usage=__doc__)
+
+parser.add_option("--pag"     , dest="pag"     , default=None, help="PAG name, should be in this list: "+"".join([str(x)+", " for x in PAGList]))
+parser.add_option("--pubYear" , dest="pubYear" , default=None, help="Publication year, should be XXXX")
+parser.add_option("--cadiId"  , dest="cadiId"  , default=None, help="CADI Id, should be <PAG>-YY-XXX")
+parser.add_option("--spireId" , dest="spireId" , default=None, help="SPIRE Id for your paper, should be XXXXXXX")
+parser.add_option("--plotDir" , dest="plotDir" , default=None, help="Input directory with Rivet plots")
+
+opts, args = parser.parse_args()
+
+## Check if at CERN
+if not 'cern' in os.uname()[1]:
+   print "ERROR: You need to execute this script from a CERN lxplud !!!"
+   exit()
+
+
+## Check Input options:
+if opts.pag == None or not opts.pag in PAGList :
+   print "ERROR: Invalid PAG input: ",opts.pag
+   print "       It should be in this list: ","".join([str(x)+", " for x in PAGList])
+   exit()
+if opts.pubYear == None or not valYear(opts.pubYear) :
+   print "ERROR: Invalid publication year: ",opts.pubYear
+   print "       It should be YYYY"
+   exit()
+## Check Input options:
+if opts.pag == None or not opts.pag in PAGList :
+   print "ERROR: Invalid PAG input: ",opts.pag
+   print "       It should be in this list: ","".join([str(x)+", " for x in PAGList])
+   exit()
+if opts.pubYear == None or not valYear(opts.pubYear) :
+   print "ERROR: Invalid publication year: ",opts.pubYear
+   print "       It should be YYYY"
+   exit()
+if opts.cadiId == None: 
+   print "ERROR: Please specify at least --cadiId"
+   exit()
+if opts.plotDir == None:
+   print "ERROR: Please specify --plotDir"
+   exit()
+elif not os.path.isdir(opts.plotDir):
+   print "ERROR: plotDir not existing: ",opts.plotDir
+   exit()
+   
+# Create CADI Plug-In name
+PlugInNameCADI='CMS_'+str(opts.pubYear)
+cadi=opts.cadiId.split('-')
+if len(cadi) < 3 :
+     print "ERROR: Wrong cadiId: ", opts.cadiId
+     print "       Should be <PAG>-YY-XXX"
+     exit()
+if cadi[0] not in PAGList or ( not cadi[0] == opts.pag and not opts.pag == 'GEN' ):
+     print "ERROR: Invalid PAG in cadiId: ", opts.cadiId
+     print "       Should be same as --pag: ",opts.pag
+     exit()
+if not valYear("20"+cadi[1]):
+     print "ERROR: Invalid year in cadiId: ",opts.cadiId
+     print "       Should be <PAG>-YY-XXX"
+     exit()
+PlugInNameCADI += '_PAS_'+cadi[0]+'_'+cadi[1]+'_'+cadi[2]
+
+# Create spireId Plug-In name
+PlugInNameSPIRE='CMS_'+str(opts.pubYear)
+if not opts.spireId == None:
+   if 'I' in opts.spireId :
+     print "ERROR: Remove 'I' in spireId: ", opts.spireId
+     exit()
+   PlugInNameSPIRE += '_I'+opts.spireId
+
+# Now we can create the plugin
+print ""
+print ">>>>>>>> Publishing plots for ",PlugInNameCADI," (",PlugInNameSPIRE,")  <<<<<<<<"
+print ""
+
+# ... Build versionned directory
+wwwTargetDir=wwwDir+opts.pag+'/'+opts.cadiId
+
+print wwwTargetDir
+if os.path.isdir(wwwTargetDir):
+  Cmd='ls '+wwwTargetDir+'| grep v '
+  proc=subprocess.Popen(Cmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+  out, err = proc.communicate()
+  ver = max([int(x.replace('v','')) for x in string.split(out) ])+1
+  wwwTargetDir+='/v'+str(ver)
+else:
+  ver = 0
+  wwwTargetDir+='/v0'
+HttpLink=HttpBase+opts.pag+'/'+opts.cadiId+'/v'+str(ver)
+
+# ... Check Input directory content
+wwwSourceDir=opts.plotDir
+Cmd='ls '+opts.plotDir+' | grep png'
+proc=subprocess.Popen(Cmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+out, err = proc.communicate()
+if not proc.returncode == 0 :
+  subDir=None
+  if not opts.spireId == None :
+    Cmd='ls '+opts.plotDir+'/'+PlugInNameSPIRE+' | grep png'
+    proc=subprocess.Popen(Cmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+    out, err = proc.communicate()
+    if proc.returncode == 0 : subDir=PlugInNameSPIRE
+  if subDir == None :
+    Cmd='ls '+opts.plotDir+'/'+PlugInNameCADI+' | grep png'
+    proc=subprocess.Popen(Cmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+    out, err = proc.communicate()
+    if proc.returncode == 0 : subDir=PlugInNameCADI
+  print subDir
+  if subDir == None:
+    print "ERROR: Plots not found in : ",opts.plotDir 
+    exit()
+  wwwSourceDir+='/'+subDir
+    
+#... mkDir && Cp all Files 
+#print wwwSourceDir+" ---> "+wwwTargetDir
+print wwwSourceDir+" ---> PUBLISHED AT : "+HttpLink
+if not os.path.exists(wwwTargetDir):
+    os.makedirs(wwwTargetDir)
+Cmd='cp '+wwwSourceDir+'/* '+wwwTargetDir
+proc=subprocess.Popen(Cmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+out, err = proc.communicate()
+
+#... Add index.php if needed
+if 'v0' in wwwSourceDir:
+  Cmd='cp '+indPHP+' '+wwwDir+opts.pag+'/'+opts.cadiId
+  proc=subprocess.Popen(Cmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+if not os.path.isfile(wwwTargetDir+'/index.html') and not os.path.isfile(wwwTargetDir+'/index.php') :
+  Cmd='cp '+indPHP+' '+wwwTargetDir
+  proc=subprocess.Popen(Cmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+

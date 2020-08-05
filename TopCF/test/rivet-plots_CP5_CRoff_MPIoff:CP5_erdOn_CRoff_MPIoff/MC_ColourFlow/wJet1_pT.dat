@@ -1,0 +1,53 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/wJet1_pT
+Title=pT of W-jet 1 
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/wJet1_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/wJet1_pT
+XLabel=$\ensuremath{p_\perp}\xspace$ (GeV)
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/wJet1_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/wJet1_pT
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/wJet1_pT
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/wJet1_pT
+ScaledBy=1.00580638990529563e-08
+Title=CP5-CRoff-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	3.333333e+01	4.959353e-03	3.377508e-05	3.377508e-05
+3.333333e+01	4.666667e+01	1.558070e-02	5.986676e-05	5.986676e-05
+4.666667e+01	6.000000e+01	1.639241e-02	6.140924e-05	6.140924e-05
+6.000000e+01	7.333333e+01	1.188925e-02	5.231150e-05	5.231150e-05
+7.333333e+01	8.666667e+01	8.084966e-03	4.313780e-05	4.313780e-05
+8.666667e+01	1.000000e+02	5.442622e-03	3.544534e-05	3.544534e-05
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/wJet1_pT
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/wJet1_pT
+ScaledBy=1.00221770733553566e-08
+Title=CP5-erdOn-CRoff-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	3.333333e+01	5.000848e-03	3.384043e-05	3.384043e-05
+3.333333e+01	4.666667e+01	1.557806e-02	5.974612e-05	5.974612e-05
+4.666667e+01	6.000000e+01	1.637977e-02	6.128614e-05	6.128614e-05
+6.000000e+01	7.333333e+01	1.200394e-02	5.245949e-05	5.245949e-05
+7.333333e+01	8.666667e+01	8.017398e-03	4.288619e-05	4.288619e-05
+8.666667e+01	1.000000e+02	5.356624e-03	3.511065e-05	3.511065e-05
+# END HISTO1D
+

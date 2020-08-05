@@ -1,0 +1,150 @@
+#! /usr/bin/env python
+
+"""\
+%prog: Rename plugin from <PAG-YY-XXX> to <InspireID>
+
+Usage: %prog [--help|-h] --pag <PAG> --pubYear <YYYY> --cadiId <PAG-YY-XXX> --spireId <InspireI>
+
+"""
+
+import os
+import subprocess
+
+import datetime
+def valYear(year):
+    try:
+        datetime.datetime.strptime(year, '%Y')
+    except:
+        return False
+    return True
+
+def isGitTracked(file):
+    Cmd="git ls-files --error-unmatch "+file
+    proc=subprocess.Popen(Cmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+    out, err = proc.communicate()
+    if proc.returncode == 0 : return True
+    else : return False
+
+def gitMove(fileIn,fileOut,pluginNameIn,pluginNameOut):
+    print fileIn, " --> ", fileOut 
+    mvCmd=''
+    if isGitTracked(fileIn):
+      mvCmd+="git mv "+fileIn+" "+fileOut
+    else:
+      mvCmd+="mv "+fileIn+" "+fileOut
+    proc=subprocess.Popen(mvCmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+    out, err = proc.communicate()
+    if proc.returncode == 0 :
+      print 'Done'
+      fIn  = open(fileOut,'r').read()
+      fOut = open(fileOut,'w')
+      fOut.write(fIn.replace(pluginNameIn,pluginNameOut))
+      fOut.close() 
+    else:
+      print out 
+      print err
+
+## Some Env cariables:
+PAGList=['FSQ','SMP','GEN','TOP','EXO','HIG','B2G','BPH','HIN','SUS']
+
+## Handle command line:
+from optparse import OptionParser
+parser = OptionParser(usage=__doc__)
+
+parser.add_option("--pag"     , dest="pag"     , default=None, help="PAG name, should be in this list: "+"".join([str(x)+", " for x in PAGList]))
+parser.add_option("--pubYear" , dest="pubYear" , default=None, help="Publication year, should be XXXX")
+parser.add_option("--cadiId"  , dest="cadiId"  , default=None, help="CADI Id, should be <PAG>-YY-XXX")
+parser.add_option("--spireId" , dest="spireId" , default=None, help="SPIRE Id for your paper, should be XXXXXXX")
+
+opts, args = parser.parse_args()
+
+## Check Input options:
+if opts.pag == None or not opts.pag in PAGList :
+   print "ERROR: Invalid PAG input: ",opts.pag
+   print "       It should be in this list: ","".join([str(x)+", " for x in PAGList])
+   exit()
+if opts.pubYear == None or not valYear(opts.pubYear) :
+   print "ERROR: Invalid publication year: ",opts.pubYear
+   print "       It should be YYYY"
+   exit()
+## Check Input options:
+if opts.pag == None or not opts.pag in PAGList :
+   print "ERROR: Invalid PAG input: ",opts.pag
+   print "       It should be in this list: ","".join([str(x)+", " for x in PAGList])
+   exit()
+if opts.pubYear == None or not valYear(opts.pubYear) :
+   print "ERROR: Invalid publication year: ",opts.pubYear
+   print "       It should be YYYY"
+   exit()
+if opts.cadiId == None: 
+   print "ERROR: Please specify at least --cadiId"
+   exit()
+if opts.spireId == None:
+   print "ERROR: Please specify at least --spireId"
+   exit()
+
+# Create CADI Plug-In name
+PlugInNameCADI='CMS_'+str(opts.pubYear)
+cadi=opts.cadiId.split('-')
+if len(cadi) < 3 :
+     print "ERROR: Wrong cadiId: ", opts.cadiId
+     print "       Should be <PAG>-YY-XXX"
+     exit()
+if cadi[0] not in PAGList or ( not cadi[0] == opts.pag and not opts.pag == 'GEN' ):
+     print "ERROR: Invalid PAG in cadiId: ", opts.cadiId
+     print "       Should be same as --pag: ",opts.pag
+     exit()
+if not valYear("20"+cadi[1]):
+     print "ERROR: Invalid year in cadiId: ",opts.cadiId
+     print "       Should be <PAG>-YY-XXX"
+     exit()
+PlugInNameCADI += '_PAS_'+cadi[0]+'_'+cadi[1]+'_'+cadi[2]
+
+# Create spireId Plug-In name
+PlugInNameSPIRE='CMS_'+str(opts.pubYear)
+if not opts.spireId == None:
+   if 'I' in opts.spireId :
+     print "ERROR: Remove 'I' in spireId: ", opts.spireId
+     exit()
+   PlugInNameSPIRE += '_I'+opts.spireId
+
+# Now we can create the plugin
+print ""
+print ">>>>>>>> Moving plugin: ",PlugInNameCADI," ---> ",PlugInNameSPIRE,"  <<<<<<<<"
+print ""
+
+CMSSW_BASE=os.environ["CMSSW_BASE"]
+ccFileCADI    = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/src/'+PlugInNameCADI+'.cc'
+infoFileCADI  = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/data/'+PlugInNameCADI+'.info'
+plotFileCADI  = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/data/'+PlugInNameCADI+'.plot'
+yodaFileCADI  = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/data/'+PlugInNameCADI+'.yoda'
+ccFileSPIRE   = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/src/'+PlugInNameSPIRE+'.cc'
+infoFileSPIRE = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/data/'+PlugInNameSPIRE+'.info'
+plotFileSPIRE = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/data/'+PlugInNameSPIRE+'.plot'
+yodaFileSPIRE = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/data/'+PlugInNameSPIRE+'.yoda'
+
+if os.path.isfile(ccFileSPIRE) or os.path.isfile(infoFileSPIRE) or os.path.isfile(plotFileSPIRE) or os.path.isfile(yodaFileSPIRE):
+   print "ERROR: Plugin already exist, will not overirdde it !!!! "
+   print "       Please check following files: ",ccFileSPIRE,infoFileSPIRE,plotFileSPIRE,yodaFileSPIRE
+   exit()
+
+if os.path.isfile(ccFileCADI):
+   gitMove(ccFileCADI,ccFileSPIRE,PlugInNameCADI,PlugInNameSPIRE)
+else:
+   print "WARNING: no CC file: ",ccFileCADI
+
+if os.path.isfile(infoFileCADI):
+   gitMove(infoFileCADI,infoFileSPIRE,PlugInNameCADI,PlugInNameSPIRE)
+else:
+   print "WARNING: no Info file: ",infoFileCADI
+
+if os.path.isfile(plotFileCADI):
+   gitMove(plotFileCADI,plotFileSPIRE,PlugInNameCADI,PlugInNameSPIRE)
+else:
+   print "WARNING: no Plot file: ",plotFileCADI
+
+if os.path.isfile(yodaFileCADI):
+   gitMove(yodaFileCADI,yodaFileSPIRE,PlugInNameCADI,PlugInNameSPIRE)
+else:
+   print "WARNING: no Yoda file: ",yodaFileCADI
+

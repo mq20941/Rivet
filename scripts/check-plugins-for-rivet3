@@ -1,0 +1,50 @@
+#! /usr/bin/env python
+
+
+import datetime
+import os, sys, re
+import rivet
+from glob import glob
+
+plugins =  glob('*/src/*.cc')
+
+## Rivet analyses to cross-reference
+ranas = rivet.AnalysisLoader.analysisNames()
+
+## Analyses in rivet gitlab repository
+import requests
+hganas = []
+iPage = 0
+while True:
+    resp = requests.get('https://gitlab.com/api/v4/projects/15397086/repository/tree?path=analyses/pluginCMS&per_page=100&page=%i' % iPage)
+    iPage += 1
+    if resp.json() == []:
+        break
+    for j in resp.json():
+        if '.info' in j['name']:
+            info = j['name'].split('.')[0]
+            hganas.append(info)
+
+import urllib
+print('plugin, in this Rivet?, in Rivet master?')
+for p in plugins:
+    pag = p.split('/')[0]
+    name = p.split('/')[2][:-3]
+    print(p, name in ranas, name in hganas)
+    
+    # Download from Rivet master
+    # if name in hganas:
+    #     urllib.urlretrieve('https://gitlab.com/hepcedar/rivet/raw/master/analyses/pluginCMS/%s.cc' % name, '%s/src/%s.cc' % (pag, name))
+
+# Internal plugins
+# At this time, we assume that they still need to be updated for Rivet 3
+# Ignore via BuildFile.xml
+previousPag = ''
+for p in plugins:
+    pag = p.split('/')[0]
+    if pag != previousPag:
+        print('%s/BuildFile.xml' % pag)
+        previousPag = pag
+    name = p.split('/')[2][:-3]
+    if not name in hganas:
+        print('<flags SKIP_FILES="%s.cc"/>' % (name))

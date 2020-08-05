@@ -1,0 +1,32 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+Title=pT of W-jet 2
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/wJet2_pT
+XLabel=$\ensuremath{p_\perp}\xspace$ (GeV)
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/wJet2_pT
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/wJet2_pT
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/wJet2_pT
+ScaledBy=6.51669997293932069e-06
+Title=ColourFlip
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	3.333333e+01	4.522335e-02	2.712112e-04	2.712112e-04
+3.333333e+01	4.666667e+01	1.841574e-02	1.737965e-04	1.737965e-04
+4.666667e+01	6.000000e+01	6.272804e-03	9.655002e-05	9.655002e-05
+6.000000e+01	7.333333e+01	2.614483e-03	5.638888e-05	5.638888e-05
+7.333333e+01	8.666667e+01	1.224662e-03	4.578741e-05	4.578741e-05
+8.666667e+01	1.000000e+02	6.384157e-04	3.510318e-05	3.510318e-05
+# END HISTO1D
+

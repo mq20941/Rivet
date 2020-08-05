@@ -1,0 +1,32 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+Title=pT of B-jet 1 
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/bJet1_pT
+XLabel=$\ensuremath{p_\perp}\xspace$ (GeV)
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/bJet1_pT
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/bJet1_pT
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_ColourFlip.yoda/MC_ColourFlow/bJet1_pT
+ScaledBy=8.55899675309951546e-06
+Title=ColourFlip
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.000000e+01	1.911078e-03	5.547790e-05	5.547790e-05
+4.000000e+01	6.000000e+01	7.557485e-03	9.723463e-05	9.723463e-05
+6.000000e+01	8.000000e+01	1.104814e-02	1.300827e-04	1.300827e-04
+8.000000e+01	1.000000e+02	9.398195e-03	1.155382e-04	1.155382e-04
+1.000000e+02	1.200000e+02	6.693030e-03	9.508766e-05	9.508766e-05
+1.200000e+02	1.400000e+02	4.531462e-03	8.110516e-05	8.110516e-05
+# END HISTO1D
+

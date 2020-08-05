@@ -1,0 +1,55 @@
+# BEGIN PLOT
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pull_12_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/pull_12_all_lowpT
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pull_12_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/pull_12_all_lowpT
+Title=Pull angle 1,2 between $W$-jets, all constituents, jetpT $<$ 60 GeV
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.05
+RatioPlotYLabel=Ratio
+YMin=0.8
+RatioPlotYMin=0.95
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pull_12_all_lowpT
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
+Legend=1
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pull_12_all_lowpT
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pull_12_all_lowpT
+ScaledBy=2.04252486764903565e-08
+Title=CP5-CRoff-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.105915e+00	6.428057e-03	6.428057e-03
+1.666667e-01	3.333333e-01	1.055975e+00	6.285912e-03	6.285912e-03
+3.333333e-01	5.000000e-01	1.002750e+00	6.121331e-03	6.121331e-03
+5.000000e-01	6.666667e-01	9.648022e-01	6.001897e-03	6.001897e-03
+6.666667e-01	8.333333e-01	9.401722e-01	5.927991e-03	5.927991e-03
+8.333333e-01	1.000000e+00	9.303850e-01	5.896029e-03	5.896029e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/pull_12_all_lowpT
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/pull_12_all_lowpT
+ScaledBy=2.03379315647130421e-08
+Title=CP5-erdOn-CRoff-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.105701e+00	6.414038e-03	6.414038e-03
+1.666667e-01	3.333333e-01	1.060941e+00	6.284836e-03	6.284836e-03
+3.333333e-01	5.000000e-01	9.886666e-01	6.066278e-03	6.066278e-03
+5.000000e-01	6.666667e-01	9.643798e-01	5.989309e-03	5.989309e-03
+6.666667e-01	8.333333e-01	9.483448e-01	5.938152e-03	5.938152e-03
+8.333333e-01	1.000000e+00	9.319666e-01	5.888811e-03	5.888811e-03
+# END HISTO1D
+

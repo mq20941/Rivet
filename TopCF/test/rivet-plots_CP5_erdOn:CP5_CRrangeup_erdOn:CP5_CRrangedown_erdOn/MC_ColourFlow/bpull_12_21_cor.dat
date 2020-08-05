@@ -1,0 +1,49 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup_erdOn.yoda/MC_ColourFlow/bpull_12_21_cor
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup_erdOn.yoda/MC_ColourFlow/bpull_12_21_cor //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown_erdOn.yoda/MC_ColourFlow/bpull_12_21_cor
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup_erdOn.yoda/MC_ColourFlow/bpull_12_21_cor //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown_erdOn.yoda/MC_ColourFlow/bpull_12_21_cor
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup_erdOn.yoda/MC_ColourFlow/bpull_12_21_cor
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup_erdOn.yoda/MC_ColourFlow/bpull_12_21_cor
+Title=CP5-CRrangeup-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	5.029654e-01	1.339344e-03	1.339344e-03
+1.666667e-01	3.333333e-01	5.024825e-01	1.348724e-03	1.348724e-03
+3.333333e-01	5.000000e-01	5.001721e-01	1.353766e-03	1.353766e-03
+5.000000e-01	6.666667e-01	5.005718e-01	1.361482e-03	1.361482e-03
+6.666667e-01	8.333333e-01	4.989647e-01	1.359393e-03	1.359393e-03
+8.333333e-01	1.000000e+00	5.031737e-01	1.357997e-03	1.357997e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown_erdOn.yoda/MC_ColourFlow/bpull_12_21_cor
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown_erdOn.yoda/MC_ColourFlow/bpull_12_21_cor
+Title=CP5-CRrangedown-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	5.005388e-01	1.341824e-03	1.341824e-03
+1.666667e-01	3.333333e-01	5.003625e-01	1.351460e-03	1.351460e-03
+3.333333e-01	5.000000e-01	5.023042e-01	1.362615e-03	1.362615e-03
+5.000000e-01	6.666667e-01	5.007368e-01	1.363873e-03	1.363873e-03
+6.666667e-01	8.333333e-01	4.986436e-01	1.355974e-03	1.355974e-03
+8.333333e-01	1.000000e+00	5.021529e-01	1.367160e-03	1.367160e-03
+# END HISTO1D
+

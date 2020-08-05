@@ -1,0 +1,140 @@
+# BEGIN PLOT
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_x2xg_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_x2xg_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_g2qq_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_g2qq_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_x2xg_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_x2xg_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_g2qq_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_g2qq_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT
+Title=Pull angle (1,2 and 2,1) between $W$-jets, all constituents, jetpT $<$ 60 GeV
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.05
+RatioPlotYLabel=Ratio
+YMin=0.8
+RatioPlotYMin=0.95
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/pull_both_all_lowpT
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+XLabel=$\phi(j^w_1, j^w_2) / \pi$ , $\phi(j^w_2, j^w_1) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^w_1,j^w_2)}$
+Legend=1
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/pull_both_all_lowpT
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/pull_both_all_lowpT
+ScaledBy=8.48415750394740145e-10
+Title=CP5
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.083682e+00	1.318019e-03	1.318019e-03
+1.666667e-01	3.333333e-01	1.040726e+00	1.291357e-03	1.291357e-03
+3.333333e-01	5.000000e-01	9.965422e-01	1.264238e-03	1.264238e-03
+5.000000e-01	6.666667e-01	9.666934e-01	1.245728e-03	1.245728e-03
+6.666667e-01	8.333333e-01	9.563356e-01	1.238912e-03	1.238912e-03
+8.333333e-01	1.000000e+00	9.560206e-01	1.237448e-03	1.237448e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT
+ScaledBy=8.57076262085284469e-10
+Title=fsr=0.5
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.079990e+00	1.780887e-03	1.780887e-03
+1.666667e-01	3.333333e-01	1.038921e+00	1.738260e-03	1.738260e-03
+3.333333e-01	5.000000e-01	9.958468e-01	1.703682e-03	1.703682e-03
+5.000000e-01	6.666667e-01	9.676594e-01	1.683727e-03	1.683727e-03
+6.666667e-01	8.333333e-01	9.579286e-01	1.679649e-03	1.679649e-03
+8.333333e-01	1.000000e+00	9.596542e-01	1.671790e-03	1.671790e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT
+ErrorBars=1
+LineColor=green
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT
+ScaledBy=8.46368679231424883e-10
+Title=fsr=2.0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.087312e+00	1.433176e-03	1.433176e-03
+1.666667e-01	3.333333e-01	1.041639e+00	1.400783e-03	1.400783e-03
+3.333333e-01	5.000000e-01	9.967762e-01	1.370692e-03	1.370692e-03
+5.000000e-01	6.666667e-01	9.659068e-01	1.350580e-03	1.350580e-03
+6.666667e-01	8.333333e-01	9.549124e-01	1.341957e-03	1.341957e-03
+8.333333e-01	1.000000e+00	9.534526e-01	1.338554e-03	1.338554e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_x2xg_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT
+ErrorBars=1
+LineColor=orange
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_x2xg_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT
+ScaledBy=8.50765354537988234e-10
+Title=fsr_x2xg=0.5
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.083084e+00	1.351900e-03	1.351900e-03
+1.666667e-01	3.333333e-01	1.040158e+00	1.324027e-03	1.324027e-03
+3.333333e-01	5.000000e-01	9.968254e-01	1.297862e-03	1.297862e-03
+5.000000e-01	6.666667e-01	9.670204e-01	1.279240e-03	1.279240e-03
+6.666667e-01	8.333333e-01	9.562312e-01	1.270349e-03	1.270349e-03
+8.333333e-01	1.000000e+00	9.566812e-01	1.271100e-03	1.271100e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_x2xg_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT
+ErrorBars=1
+LineColor=lilac
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_x2xg_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT
+ScaledBy=8.47404921561913645e-10
+Title=fsr-x2xg=2.0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.084074e+00	1.329984e-03	1.329984e-03
+1.666667e-01	3.333333e-01	1.041107e+00	1.303365e-03	1.303365e-03
+3.333333e-01	5.000000e-01	9.964072e-01	1.275105e-03	1.275105e-03
+5.000000e-01	6.666667e-01	9.664804e-01	1.256066e-03	1.256066e-03
+6.666667e-01	8.333333e-01	9.563404e-01	1.250285e-03	1.250285e-03
+8.333333e-01	1.000000e+00	9.555916e-01	1.247480e-03	1.247480e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_g2qq_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT
+ErrorBars=1
+LineColor=red
+LineStyle=dashed
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_g2qq_murfac_05.yoda/MC_ColourFlow/pull_both_all_lowpT
+ScaledBy=8.48043549736929572e-10
+Title=fsr-g2qq=0.5
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.083519e+00	1.371963e-03	1.371963e-03
+1.666667e-01	3.333333e-01	1.040843e+00	1.344848e-03	1.344848e-03
+3.333333e-01	5.000000e-01	9.964834e-01	1.316517e-03	1.316517e-03
+5.000000e-01	6.666667e-01	9.664210e-01	1.296229e-03	1.296229e-03
+6.666667e-01	8.333333e-01	9.565342e-01	1.291478e-03	1.291478e-03
+8.333333e-01	1.000000e+00	9.562000e-01	1.288663e-03	1.288663e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_g2qq_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT
+ErrorBars=1
+LineColor=blue
+LineStyle=dashed
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_fsr_isr_0520/CP5_fsr_g2qq_murfac_20.yoda/MC_ColourFlow/pull_both_all_lowpT
+ScaledBy=8.49031009744744124e-10
+Title=fsr-g2qq=2.0
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.083786e+00	1.333767e-03	1.333767e-03
+1.666667e-01	3.333333e-01	1.040634e+00	1.306726e-03	1.306726e-03
+3.333333e-01	5.000000e-01	9.964984e-01	1.279228e-03	1.279228e-03
+5.000000e-01	6.666667e-01	9.667906e-01	1.261066e-03	1.261066e-03
+6.666667e-01	8.333333e-01	9.563362e-01	1.253903e-03	1.253903e-03
+8.333333e-01	1.000000e+00	9.559552e-01	1.252658e-03	1.252658e-03
+# END HISTO1D
+

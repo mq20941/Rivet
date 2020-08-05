@@ -1,0 +1,53 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2.yoda/MC_ColourFlow/wJet2_pT
+Title=pT of W-jet 2
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2.yoda/MC_ColourFlow/wJet2_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2_erdOn.yoda/MC_ColourFlow/wJet2_pT
+XLabel=$\ensuremath{p_\perp}\xspace$ (GeV)
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2.yoda/MC_ColourFlow/wJet2_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2_erdOn.yoda/MC_ColourFlow/wJet2_pT
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2.yoda/MC_ColourFlow/wJet2_pT
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2.yoda/MC_ColourFlow/wJet2_pT
+ScaledBy=1.48794139530859073e-08
+Title=CP5-CR2
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	3.333333e+01	4.418491e-02	1.406775e-04	1.406775e-04
+3.333333e+01	4.666667e+01	1.855489e-02	9.101238e-05	9.101238e-05
+4.666667e+01	6.000000e+01	6.633393e-03	5.485938e-05	5.485938e-05
+6.000000e+01	7.333333e+01	2.873854e-03	3.628798e-05	3.628798e-05
+7.333333e+01	8.666667e+01	1.394331e-03	2.506501e-05	2.506501e-05
+8.666667e+01	1.000000e+02	6.677635e-04	1.748253e-05	1.748253e-05
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2_erdOn.yoda/MC_ColourFlow/wJet2_pT
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2_erdOn.yoda/MC_ColourFlow/wJet2_pT
+ScaledBy=8.78915553742220687e-09
+Title=CP5-CR2-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	3.333333e+01	4.388633e-02	9.394605e-05	9.394605e-05
+3.333333e+01	4.666667e+01	1.866781e-02	6.126589e-05	6.126589e-05
+4.666667e+01	6.000000e+01	6.710792e-03	3.678224e-05	3.678224e-05
+6.000000e+01	7.333333e+01	2.966089e-03	2.445242e-05	2.445242e-05
+7.333333e+01	8.666667e+01	1.398356e-03	1.682688e-05	1.682688e-05
+8.666667e+01	1.000000e+02	6.841232e-04	1.177155e-05	1.177155e-05
+# END HISTO1D
+

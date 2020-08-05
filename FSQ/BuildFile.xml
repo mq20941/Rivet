@@ -1,0 +1,18 @@
+<use name="rivet"/>
+<use name="yoda"/>
+<use name="fastjet"/>
+<use name="fastjet-contrib"/>
+<use name="clhep"/>
+<use name="boost"/>
+<use name="gsl"/>
+<use name="root"/>
+<use name="GeneratorInterface/Core"/>
+<use name="GeneratorInterface/Pythia8Interface"/>
+<use name="GeneratorInterface/Pythia6Interface"/>
+<flags   RIVET_PLUGIN="1"/>
+<export>
+  <lib name="1"/>
+</export>
+
+<!-- Do not compile plugins that have not been ported to Rivet 3 yet -->
+<flags SKIP_FILES="CMS_2015_PAS_FSQ_15_007.cc"/>

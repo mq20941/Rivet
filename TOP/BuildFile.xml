@@ -1,0 +1,24 @@
+<use name="rivet"/>
+<use name="yoda"/>
+<use name="fastjet"/>
+<use name="fastjet-contrib"/>
+<use name="clhep"/>
+<use name="boost"/>
+<use name="gsl"/>
+<use name="root"/>
+<use name="GeneratorInterface/Core"/>
+<use name="GeneratorInterface/Pythia6Interface"/>
+<flags   RIVET_PLUGIN="1"/>
+<export>
+  <lib name="1"/>
+</export>
+<!-- Do not compile plugins integrated (and working) in official Rivet -->
+<flags SKIP_FILES="CMS_2015_I1397174.cc"/>
+
+<!-- Do not compile plugins that have not been ported to Rivet 3 yet -->
+<flags SKIP_FILES="CMS_2015_I1370682_internal.cc"/>
+<flags SKIP_FILES="CMS_2015_I1370682_parton.cc"/>
+<flags SKIP_FILES="CMS_2016_I1434354.cc"/>
+<flags SKIP_FILES="CMS_LesHouches2015.cc"/>
+<flags SKIP_FILES="MC_TCH.cc"/>
+<flags SKIP_FILES="MC_TOPMASS_LJETS.cc"/>

@@ -1,0 +1,114 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+Title=(signed) Correlation between parallel pull projection and pull angle
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Variations=fsr_murfac=0.5
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_up.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_down.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+XLabel=$t_{\parallel}$
+YLabel=$\phi(j^W_1, j^W_2) / \pi$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_up.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_down.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Title=MC_CP5
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.000000e-02	-6.666667e-03	8.868373e-01	1.547409e-03	1.547409e-03
+-6.666667e-03	-3.333333e-03	8.469320e-01	8.574311e-04	8.574311e-04
+-3.333333e-03	0.000000e+00	7.203905e-01	5.771370e-04	5.771370e-04
+0.000000e+00	3.333333e-03	2.644721e-01	5.344002e-04	5.344002e-04
+3.333333e-03	6.666667e-03	1.462633e-01	7.440949e-04	7.440949e-04
+6.666667e-03	1.000000e-02	1.117407e-01	1.295548e-03	1.295548e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Title=MC_CP5_erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.000000e-02	-6.666667e-03	8.871330e-01	1.506503e-03	1.506503e-03
+-6.666667e-03	-3.333333e-03	8.455369e-01	8.424686e-04	8.424686e-04
+-3.333333e-03	0.000000e+00	7.212276e-01	5.633504e-04	5.633504e-04
+0.000000e+00	3.333333e-03	2.664604e-01	5.253355e-04	5.253355e-04
+3.333333e-03	6.666667e-03	1.487248e-01	7.257620e-04	7.257620e-04
+6.666667e-03	1.000000e-02	1.108378e-01	1.285315e-03	1.285315e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_up.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+ErrorBars=1
+LineColor=green
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_up.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Title=MC_CP5_up
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.000000e-02	-6.666667e-03	8.879602e-01	1.415585e-03	1.415585e-03
+-6.666667e-03	-3.333333e-03	8.459465e-01	8.328366e-04	8.328366e-04
+-3.333333e-03	0.000000e+00	7.207385e-01	5.462465e-04	5.462465e-04
+0.000000e+00	3.333333e-03	2.652651e-01	5.046742e-04	5.046742e-04
+3.333333e-03	6.666667e-03	1.453065e-01	7.019889e-04	7.019889e-04
+6.666667e-03	1.000000e-02	1.097156e-01	1.224029e-03	1.224029e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_down.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+ErrorBars=1
+LineColor=orange
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_down.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Title=MC_CP5_down
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.000000e-02	-6.666667e-03	8.835206e-01	1.628414e-03	1.628414e-03
+-6.666667e-03	-3.333333e-03	8.472678e-01	8.785304e-04	8.785304e-04
+-3.333333e-03	0.000000e+00	7.219980e-01	5.804401e-04	5.804401e-04
+0.000000e+00	3.333333e-03	2.637305e-01	5.354550e-04	5.354550e-04
+3.333333e-03	6.666667e-03	1.468332e-01	7.496370e-04	7.496370e-04
+6.666667e-03	1.000000e-02	1.104202e-01	1.287639e-03	1.287639e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+ErrorBars=1
+LineColor=lilac
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR1.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Title=MC_CP5_CR1
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.000000e-02	-6.666667e-03	8.837681e-01	1.487835e-03	1.487835e-03
+-6.666667e-03	-3.333333e-03	8.461326e-01	8.508707e-04	8.508707e-04
+-3.333333e-03	0.000000e+00	7.214201e-01	5.635574e-04	5.635574e-04
+0.000000e+00	3.333333e-03	2.647605e-01	5.188411e-04	5.188411e-04
+3.333333e-03	6.666667e-03	1.466604e-01	7.258345e-04	7.258345e-04
+6.666667e-03	1.000000e-02	1.099670e-01	1.243243e-03	1.243243e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+ErrorBars=1
+LineColor=red
+LineStyle=dashed
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CR2.yoda/MC_ColourFlow/paraproj_pull_angle_cor_signed
+Title=MC_CP5_CR2
+# xlow	 xhigh	 val	 errminus	 errplus
+-1.000000e-02	-6.666667e-03	8.849778e-01	1.650357e-03	1.650357e-03
+-6.666667e-03	-3.333333e-03	8.452326e-01	8.825182e-04	8.825182e-04
+-3.333333e-03	0.000000e+00	7.206683e-01	5.819485e-04	5.819485e-04
+0.000000e+00	3.333333e-03	2.648309e-01	5.360729e-04	5.360729e-04
+3.333333e-03	6.666667e-03	1.462901e-01	7.495945e-04	7.495945e-04
+6.666667e-03	1.000000e-02	1.105758e-01	1.249114e-03	1.249114e-03
+# END HISTO1D
+

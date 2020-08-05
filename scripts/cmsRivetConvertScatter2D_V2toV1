@@ -1,0 +1,55 @@
+#! /usr/bin/env python
+
+"""\
+%prog: Convert yoda data file from SCATTER2D_V2 (HepData) to SCATTER2D
+
+Usage: %prog [--help|-h] --input <path> --output <path>
+
+"""
+
+import os
+import re
+
+## Handle command line:
+from optparse import OptionParser
+parser = OptionParser(usage=__doc__)
+
+parser.add_option("--input"  , dest="input"  , default=None, help="Input path")
+parser.add_option("--output" , dest="output" , default=None, help="Output path")
+
+opts, args = parser.parse_args()
+
+## Check Input options:
+if opts.input == None or not os.path.isfile(opts.input) :
+   print("ERROR: Invalid input: Specify path to existing yoda file with --input")
+   exit()
+if opts.output == None or opts.output == opts.input:
+   print("ERROR: Invalid input: Specify path to new yoda file with --output")
+   exit()
+
+# Open files and convert format
+inputfile  = open(opts.input,  'r')
+outputfile = open(opts.output, 'w')
+
+for line in inputfile:
+    newline = line
+
+    m = re.search('BEGIN YODA_SCATTER2D_V2 (.*)', line)
+    if m: newline = '# BEGIN YODA_SCATTER2D %s\n'%(m.group(1))
+
+    m = re.search('Path: (.*)', line)
+    if m: newline = 'Path=%s\n'%(m.group(1))
+
+    m = re.search('Type: (.*)', line)
+    if m: newline = 'Type=%s\n'%(m.group(1))
+
+    m = re.search('END YODA_SCATTER2D_V2', line)
+    if m: newline = '# END YODA_SCATTER2D \n\n'
+
+    if any(x in line for x in ['IsRef:', 'Title:', '---']):
+        continue
+
+    outputfile.write(newline)
+
+inputfile.close()
+outputfile.close()

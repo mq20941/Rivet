@@ -1,0 +1,52 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pullvectorj1_perpproj_all
+Title=Magnitude of perpendicular projection of pull vector of highest p_t $W$-jet
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.05
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pullvectorj1_perpproj_all //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/pullvectorj1_perpproj_all
+XLabel=$|t_{\bot}|$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}|t_{\bot}|}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pullvectorj1_perpproj_all //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/pullvectorj1_perpproj_all
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+Legend=1
+RatioPlotYMin=0.95
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pullvectorj1_perpproj_all
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/pullvectorj1_perpproj_all
+ScaledBy=1.00580638990529563e-08
+Title=CP5-CRoff-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-03	3.269726e+02	7.086110e-01	7.086110e-01
+2.000000e-03	4.000000e-03	1.101538e+02	4.113461e-01	4.113461e-01
+4.000000e-03	6.000000e-03	4.012792e+01	2.481776e-01	2.481776e-01
+6.000000e-03	8.000000e-03	1.501818e+01	1.517822e-01	1.517822e-01
+8.000000e-03	1.000000e-02	5.521285e+00	9.218476e-02	9.218476e-02
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/pullvectorj1_perpproj_all
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/pullvectorj1_perpproj_all
+ScaledBy=1.00221770733553566e-08
+Title=CP5-erdOn-CRoff-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-03	3.270604e+02	7.074488e-01	7.074488e-01
+2.000000e-03	4.000000e-03	1.102151e+02	4.106271e-01	4.106271e-01
+4.000000e-03	6.000000e-03	3.993413e+01	2.471072e-01	2.471072e-01
+6.000000e-03	8.000000e-03	1.515146e+01	1.522221e-01	1.522221e-01
+8.000000e-03	1.000000e-02	5.560815e+00	9.211827e-02	9.211827e-02
+# END HISTO1D
+

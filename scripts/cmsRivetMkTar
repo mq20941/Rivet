@@ -1,0 +1,145 @@
+#! /usr/bin/env python
+
+
+
+"""\
+%prog: make tarball for a given Rivet Plugin
+
+Usage: %prog [--help|-h] --pag <PAG> --pubYear <YYYY> [--cadiId <PAG-YY-XXX>] [--spireId <InspireI>]
+
+       * Provide either [--cadiId <PAG-YY-XXX>] OR [--spireId <InspireI>]
+       * Use --spireId if available (otherwise --cadiId but final version will have to be changed to InspireI)
+
+"""
+
+import os
+import subprocess
+import shutil
+import string
+import tempfile
+import datetime
+
+def valYear(year):
+    try:
+        datetime.datetime.strptime(year, '%Y')
+    except: 
+        return False
+    return True
+
+## Some Env cariables:
+PAGList=['FSQ','SMP','GEN','TOP','EXO','HIG','B2G','BPH','HIN','SUS']
+
+## Handle command line:
+from optparse import OptionParser
+parser = OptionParser(usage=__doc__)
+
+parser.add_option("--pag"     , dest="pag"     , default=None, help="PAG name, should be in this list: "+"".join([str(x)+", " for x in PAGList]))
+parser.add_option("--pubYear" , dest="pubYear" , default=None, help="Publication year, should be XXXX")
+parser.add_option("--cadiId"  , dest="cadiId"  , default=None, help="CADI Id, should be <PAG>-YY-XXX")
+parser.add_option("--spireId" , dest="spireId" , default=None, help="SPIRE Id for your paper, should be XXXXXXX")
+
+opts, args = parser.parse_args()
+
+## Check Input options:
+if opts.pag == None or not opts.pag in PAGList : 
+   print "ERROR: Invalid PAG input: ",opts.pag 
+   print "       It should be in this list: ","".join([str(x)+", " for x in PAGList])  
+   exit()
+if opts.pubYear == None or not valYear(opts.pubYear) :
+   print "ERROR: Invalid publication year: ",opts.pubYear
+   print "       It should be YYYY" 
+   exit()
+if opts.cadiId == None and  opts.spireId == None:
+   print "ERROR: Please specify at least --cadiId OR --spireId"
+   exit()
+
+# Create Plug-In name
+PlugInName='CMS_'+str(opts.pubYear)
+if not opts.spireId == None:
+   if 'I' in opts.spireId : 
+     print "ERROR: Remove 'I' in spireId: ", opts.spireId
+     exit()
+   PlugInName += '_I'+opts.spireId
+else:
+   cadi=opts.cadiId.split('-')
+   if len(cadi) < 3 :
+     print "ERROR: Wrong cadiId: ", opts.cadiId
+     print "       Should be <PAG>-YY-XXX"
+     exit()
+   if cadi[0] not in PAGList or ( not cadi[0] == opts.pag and not opts.pag == 'GEN' ):
+     print "ERROR: Invalid PAG in cadiId: ", opts.cadiId
+     print "       Should be same as --pag: ",opts.pag
+     exit()
+
+   if not valYear("20"+cadi[1]):
+     print "ERROR: Invalid year in cadiId: ",opts.cadiId
+     print "       Should be <PAG>-YY-XXX"
+     exit()
+ 
+   PlugInName += '_PAS_'+cadi[0]+'_'+cadi[1]+'_'+cadi[2]
+    
+# Now we can create the plugin
+print ""
+print ">>>>>>>> Creating tarball for plugin: ",PlugInName,"  <<<<<<<<" 
+print ""
+
+CMSSW_BASE=os.environ["CMSSW_BASE"]
+ccFile    = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/src/'+PlugInName+'.cc'
+infoFile  = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/data/'+PlugInName+'.info' 
+plotFile  = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/data/'+PlugInName+'.plot' 
+yodaFile  = CMSSW_BASE+'/src/Rivet/'+opts.pag+'/data/'+PlugInName+'.yoda' 
+if not os.path.isfile(ccFile) or not os.path.isfile(infoFile) or not os.path.isfile(plotFile) :
+   print "ERROR: Plugin already exist, will not overirdde it !!!! "
+   print "       Please check following files: ",ccFile,infoFile,plotFile,yodaFile
+   exit()
+
+
+TmpDir    = tempfile.mkdtemp()
+os.mkdir(TmpDir+'/plots')
+
+TarFile   = CMSSW_BASE+'/src/Rivet/'+PlugInName+'.tgz'
+
+#### Source Files
+
+print "---> CC   File  : ",ccFile
+print "---> Info File  : ",infoFile
+print "---> Plot File  : ",plotFile
+print "---> Yoda File  : ",yodaFile
+print " "
+
+SrcDir    = CMSSW_BASE+'/src/Rivet/'+opts.pag
+ccFile    = 'src/'+PlugInName+'.cc'
+infoFile  = 'data/'+PlugInName+'.info'
+plotFile  = 'data/'+PlugInName+'.plot'
+yodaFile  = 'data/'+PlugInName+'.yoda'
+
+shutil.copy(SrcDir+'/'+ccFile,TmpDir)
+shutil.copy(SrcDir+'/'+infoFile,TmpDir)
+shutil.copy(SrcDir+'/'+plotFile,TmpDir)
+shutil.copy(SrcDir+'/'+yodaFile,TmpDir)
+
+print TmpDir
+
+#### Plots
+
+wwwDir='/eos/project/c/cmsweb/www/generators/Rivet/ValPlots/'
+
+plotsDir=wwwDir+opts.pag+'/'+opts.cadiId
+print plotsDir
+if os.path.isdir(plotsDir) :
+  Cmd='ls '+plotsDir+'| grep v'
+  proc=subprocess.Popen(Cmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+  out, err = proc.communicate()
+  ver = max([int(x.replace('v','')) for x in string.split(out) ])
+  plotsDir+='/v'+str(ver)
+  print "---> Plots  : ",plotsDir
+  for fName in os.listdir(plotsDir) :
+    if (os.path.isfile(plotsDir+'/'+fName)): shutil.copy(plotsDir+'/'+fName,TmpDir+'/plots')
+else:
+  print "WARNING: NO PLOTS FOUND !!!!!!!!!!!!!!!!!! " 
+
+tarCmd= 'cd '+TmpDir +' ; tar czf '+TarFile+' * ; cd - '
+proc=subprocess.Popen(tarCmd, stderr = subprocess.PIPE,stdout = subprocess.PIPE, shell = True)
+out, err = proc.communicate()
+
+print "---> Tar File   : ",TarFile

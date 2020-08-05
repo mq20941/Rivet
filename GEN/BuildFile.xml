@@ -1,0 +1,28 @@
+<use name="rivet"/>
+<use name="yoda"/>
+<use name="fastjet"/>
+<use name="fastjet-contrib"/>
+<use name="clhep"/>
+<use name="boost"/>
+<use name="gsl"/>
+<use name="root"/>
+<use name="GeneratorInterface/Core"/>
+<use name="GeneratorInterface/Pythia6Interface"/>
+<flags   RIVET_PLUGIN="1"/>
+<export>
+  <lib name="1"/>
+</export>
+
+<!-- Do not compile plugins that have not been ported to Rivet 3 yet -->
+<flags SKIP_FILES="ATLAS_2016_I1419652.cc"/>
+<flags SKIP_FILES="ATLAS_2017_I1509919.cc"/>
+<flags SKIP_FILES="Azimuthal_Dijets_ak4_delta_phi_12.cc"/>
+<flags SKIP_FILES="Azimuthal_Fourjets_ak4_delta_phi_12.cc"/>
+<flags SKIP_FILES="Azimuthal_Fourjets_ak4_delta_phi_min2j.cc"/>
+<flags SKIP_FILES="Azimuthal_Threejets_ak4_delta_phi_12.cc"/>
+<flags SKIP_FILES="Azimuthal_Threejets_ak4_delta_phi_min2j.cc"/>
+<flags SKIP_FILES="CMS_FSQ_15_005.cc"/>
+<flags SKIP_FILES="CMS_FSQ_15_006.cc"/>
+<flags SKIP_FILES="CMS_FSQ_15_008.cc"/>
+<flags SKIP_FILES="CMS_Internal_FSQ_15_007.cc"/>
+<flags SKIP_FILES="CMS_Internal_FSQ_16_008.cc"/>

@@ -1,0 +1,157 @@
+# -*- ThePEG-repository -*-
+
+#### MAH: Comments by Marco A. Harrendorf
+##################################################
+## Herwig/Matchbox example input file
+##################################################
+
+##################################################
+## Collider type
+##################################################
+
+read Matchbox/PPCollider.in
+
+##################################################
+## Beam energy sqrt(s)
+##################################################
+
+cd /Herwig/EventHandlers
+set EventHandler:LuminosityFunction:Energy 13000*GeV
+
+##################################################
+## Process selection
+##################################################
+
+## Note that event generation may fail if no matching matrix element has
+## been found.  Coupling orders are with respect to the Born process,
+## i.e. NLO QCD does not require an additional power of alphas.
+
+## Set the order of the couplings
+cd /Herwig/MatrixElements/Matchbox
+#### MAH: Depending on the number of QCD jets you have to adjust the following line
+set Factory:OrderInAlphaS 2
+set Factory:OrderInAlphaEW 0
+
+## Select the process
+## You may use identifiers such as p, pbar, j, l, mu+, h0 etc.
+#### MAH: You can add here an additional jet
+do Factory:Process p p -> j j
+
+## Special settings required for on-shell production of unstable particles
+## enable for on-shell top production
+# read Matchbox/OnShellTopProduction.in
+## enable for on-shell W, Z or h production
+# read Matchbox/OnShellEWProduction.in
+# Special settings for the VBF approximation
+# read Matchbox/VBFDiagramsOnly.in
+
+##################################################
+## Matrix element library selection
+##################################################
+
+## Select a generic tree/loop combination or a
+## specialized NLO package
+
+#### MAH: You could try if the Herwig ME can be used, otherwise I would propose MadGraph-Madgraph
+# read Matchbox/MadGraph-GoSam.in
+# read Matchbox/MadGraph-MadGraph.in
+read Matchbox/MadGraph-NJet.in
+#read Matchbox/MadGraph-OpenLoops.in
+# read Matchbox/HJets.in
+# read Matchbox/VBFNLO.in
+
+## Uncomment this to use ggh effective couplings
+## currently only supported by MadGraph-GoSam
+
+# read Matchbox/HiggsEffective.in
+
+##################################################
+## Cut selection
+## See the documentation for more options
+##################################################
+
+#### MAH: Switching on some basic jet cuts
+read Matchbox/DefaultPPJets.in
+
+set /Herwig/Cuts/FirstJet:PtMin 80.*GeV
+do /Herwig/Cuts/FirstJet:YRange -5.0 5.0
+
+insert JetCuts:JetRegions 0 FirstJet
+
+##################################################
+## Scale choice
+## See the documentation for more options
+##################################################
+
+cd /Herwig/MatrixElements/Matchbox
+set Factory:ScaleChoice Scales/MaxJetPtScale
+#set Factory:ScaleChoice Scales/HTScale
+
+##################################################
+## Matching and shower selection
+## Please also see flavour scheme settings
+## towards the end of the input file.
+##################################################
+
+#### MAH: Try the LO-DefaultShower or the LO-DipoleShower
+read Matchbox/MCatNLO-DefaultShower.in
+#read Matchbox/Powheg-DefaultShower.in
+## use for strict LO/NLO comparisons
+#read Matchbox/MCatLO-DefaultShower.in
+## use for improved LO showering
+#read Matchbox/LO-DefaultShower.in
+
+# read Matchbox/MCatNLO-DipoleShower.in
+# read Matchbox/Powheg-DipoleShower.in
+## use for strict LO/NLO comparisons
+# read Matchbox/MCatLO-DipoleShower.in
+## use for improved LO showering
+#read Matchbox/LO-DipoleShower.in
+
+#read Matchbox/NLO-NoShower.in
+# read Matchbox/LO-NoShower.in
+
+##################################################
+## Scale uncertainties
+##################################################
+
+# read Matchbox/MuDown.in
+# read Matchbox/MuUp.in
+
+##################################################
+## Shower scale uncertainties
+##################################################
+
+# read Matchbox/MuQDown.in
+# read Matchbox/MuQUp.in
+
+##################################################
+## PDF choice
+##################################################
+
+# Intrinsic pT tune extrapolated to LHC energy
+set /Herwig/Shower/Evolver:IntrinsicPtGaussian 2.2*GeV
+
+read Matchbox/FiveFlavourScheme.in
+## required for dipole shower and fixed order in five flavour scheme
+# read Matchbox/FiveFlavourNoBMassScheme.in
+#### MAH: You maybe want to change this to the NNPDF30LO, then copy the NNPDF30NLO snippet from snippets/PDF-NNPDF30NLO.in and set the LO version
+read Matchbox/MMHT2014.in
+
+##################################################
+## Analyses
+##################################################
+
+cd /Herwig/Analysis
+insert Rivet:Analyses 0 CMS_2011_S9086218_13TeV CMS_2011_S9086218_BJetak413TeV
+insert /Herwig/Generators/EventGenerator:AnalysisHandlers 0 Rivet
+insert /Herwig/Generators/EventGenerator:AnalysisHandlers 0 HepMC
+
+##################################################
+## Save the generator
+##################################################
+
+do /Herwig/MatrixElements/Matchbox/Factory:ProductionMode
+
+cd /Herwig/Generators
+saverun LHC-QCD-13TeV-NLO-InclusiveJets EventGenerator

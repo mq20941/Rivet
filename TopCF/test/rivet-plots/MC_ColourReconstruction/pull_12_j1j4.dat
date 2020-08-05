@@ -1,0 +1,53 @@
+# BEGIN PLOT
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/pull_12_j1j4 //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction/pull_12_j1j4
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/pull_12_j1j4 //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction/pull_12_j1j4
+Title=(forwards) Pull angle 
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+YMin=0.8
+RatioPlotYMin=0.6
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=4.5
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/pull_12_j1j4
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+XLabel=$\phi(j_1, j_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_2)}$
+Legend=1
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/pull_12_j1j4
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/pull_12_j1j4
+ScaledBy=2.21887683394105124e-08
+Title=tt+jets
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.145659e+00	7.266512e-03	7.266512e-03
+2.000000e-01	4.000000e-01	1.042196e+00	6.967248e-03	6.967248e-03
+4.000000e-01	6.000000e-01	9.857715e-01	6.871157e-03	6.871157e-03
+6.000000e-01	8.000000e-01	9.191280e-01	6.501486e-03	6.501486e-03
+8.000000e-01	1.000000e+00	9.072450e-01	6.458355e-03	6.458355e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction/pull_12_j1j4
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction/pull_12_j1j4
+ScaledBy=1.25568501395202669e-03
+Title=tttt
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.068031e+00	4.732860e-02	4.732860e-02
+2.000000e-01	4.000000e-01	1.019948e+00	4.504081e-02	4.504081e-02
+4.000000e-01	6.000000e-01	9.578170e-01	4.948121e-02	4.948121e-02
+6.000000e-01	8.000000e-01	1.025496e+00	3.858526e-02	3.858526e-02
+8.000000e-01	1.000000e+00	9.287065e-01	4.103525e-02	4.103525e-02
+# END HISTO1D
+
