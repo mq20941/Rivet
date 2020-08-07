@@ -136,6 +136,7 @@ namespace Rivet {
       vector<size_t> ccjet2index;
       set<size_t> doublecount_s1; //to prevent double counting of jet pairs in loop 
       for (size_t i = 0; i < ljets.size(); ++i) {
+        vector<double> pull_values = {};
         double pull_12_min = Rivet::PI;
         size_t jet1index = i;
         size_t jet2index = 100;
