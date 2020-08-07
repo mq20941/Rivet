@@ -1,0 +1,72 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+Title=Correlation between jetpT and $|t_{\parallel}|$
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/jetpT_paraproj_cor //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/jetpT_paraproj_cor //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff.yoda/MC_ColourFlow/jetpT_paraproj_cor //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+XLabel=$\ensuremath{p_\perp}\xspace$ (GeV)
+YLabel=$|t_{\parallel}|$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/jetpT_paraproj_cor //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/jetpT_paraproj_cor //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff.yoda/MC_ColourFlow/jetpT_paraproj_cor //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+Title=CP5-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.666667e+01	2.221817e-03	6.589904e-06	6.589904e-06
+4.666667e+01	7.333333e+01	1.980047e-03	5.475662e-06	5.475662e-06
+7.333333e+01	1.000000e+02	1.889906e-03	8.067947e-06	8.067947e-06
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+Title=CP5-erdOn-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.666667e+01	2.219443e-03	6.612969e-06	6.612969e-06
+4.666667e+01	7.333333e+01	1.973670e-03	5.452054e-06	5.452054e-06
+7.333333e+01	1.000000e+02	1.890173e-03	8.110782e-06	8.110782e-06
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+ErrorBars=1
+LineColor=green
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+Title=CP5-CRoff
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.666667e+01	2.350103e-03	6.063448e-06	6.063448e-06
+4.666667e+01	7.333333e+01	2.083289e-03	5.027530e-06	5.027530e-06
+7.333333e+01	1.000000e+02	1.955297e-03	7.424262e-06	7.424262e-06
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+ErrorBars=1
+LineColor=orange
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff.yoda/MC_ColourFlow/jetpT_paraproj_cor
+Title=CP5-erdOn-CRoff
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.666667e+01	2.358948e-03	6.040163e-06	6.040163e-06
+4.666667e+01	7.333333e+01	2.083193e-03	5.018524e-06	5.018524e-06
+7.333333e+01	1.000000e+02	1.937793e-03	7.330426e-06	7.330426e-06
+# END HISTO1D
+

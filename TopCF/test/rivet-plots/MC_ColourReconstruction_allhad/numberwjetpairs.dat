@@ -1,0 +1,37 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+Title=Number of light jet pair combinations that have invariant mass within $20$ GeV of $W$ mass 
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_allhad_colour.yoda/MC_ColourReconstruction_allhad/numberwjetpairs
+XLabel=Number of pairs
+YLabel=Count
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_allhad_colour.yoda/MC_ColourReconstruction_allhad/numberwjetpairs
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=2.5
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_allhad_colour.yoda/MC_ColourReconstruction_allhad/numberwjetpairs
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_allhad_colour.yoda/MC_ColourReconstruction_allhad/numberwjetpairs
+ScaledBy=2.13512805319201021e-06
+Title=allhad
+# xlow	 xhigh	 val	 errminus	 errplus
+-5.000000e-01	5.000000e-01	6.474909e-02	6.839686e-03	6.839686e-03
+5.000000e-01	1.500000e+00	2.604416e-01	1.354268e-02	1.354268e-02
+1.500000e+00	2.500000e+00	2.814307e-01	1.441512e-02	1.441512e-02
+2.500000e+00	3.500000e+00	1.622954e-01	1.082745e-02	1.082745e-02
+3.500000e+00	4.500000e+00	1.087854e-01	8.632993e-03	8.632993e-03
+4.500000e+00	5.500000e+00	5.352484e-02	6.238375e-03	6.238375e-03
+5.500000e+00	6.500000e+00	2.819716e-02	4.512237e-03	4.512237e-03
+6.500000e+00	7.500000e+00	1.640432e-02	3.343643e-03	3.343643e-03
+# END HISTO1D
+

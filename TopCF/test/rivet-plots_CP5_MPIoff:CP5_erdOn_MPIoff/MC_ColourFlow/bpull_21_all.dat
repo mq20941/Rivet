@@ -1,0 +1,56 @@
+# BEGIN PLOT
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/bpull_21_all //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/bpull_21_all
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/bpull_21_all //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/bpull_21_all
+Title=Pull angle 2,1 between $B$-jets, all constituents
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+YMin=0.8
+RatioPlotYMin=0.6
+XTwosidedTicks=1
+YTwosidedTicks=1
+YMax=1.1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/bpull_21_all
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+XLabel=$\phi(j^B_2, j^B_1) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^B_2,j^B_1)}$
+Legend=1
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/bpull_21_all
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/bpull_21_all
+ScaledBy=1.25984089196278819e-08
+Title=CP5-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.001729e+00	4.808155e-03	4.808155e-03
+1.666667e-01	3.333333e-01	9.915718e-01	4.784647e-03	4.784647e-03
+3.333333e-01	5.000000e-01	1.002703e+00	4.810119e-03	4.810119e-03
+5.000000e-01	6.666667e-01	9.934060e-01	4.789426e-03	4.789426e-03
+6.666667e-01	8.333333e-01	1.008429e+00	4.823851e-03	4.823851e-03
+8.333333e-01	1.000000e+00	1.002161e+00	4.810595e-03	4.810595e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/bpull_21_all
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/bpull_21_all
+ScaledBy=1.26003742288080410e-08
+Title=CP5-erdOn-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.006342e+00	4.819384e-03	4.819384e-03
+1.666667e-01	3.333333e-01	9.937516e-01	4.789327e-03	4.789327e-03
+3.333333e-01	5.000000e-01	9.928660e-01	4.787223e-03	4.787223e-03
+5.000000e-01	6.666667e-01	9.996214e-01	4.803520e-03	4.803520e-03
+6.666667e-01	8.333333e-01	1.005103e+00	4.818071e-03	4.818071e-03
+8.333333e-01	1.000000e+00	1.002315e+00	4.811552e-03	4.811552e-03
+# END HISTO1D
+

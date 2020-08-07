@@ -1,0 +1,64 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=7
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s2.yoda/MC_ColourReconstruction/numberccjetpairs
+Title=Number of light jet pair combinations that are identified as colour connected and within $40$ GeV of $W$ mass 
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s2.yoda/MC_ColourReconstruction/numberccjetpairs //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_s2.yoda/MC_ColourReconstruction/numberccjetpairs
+XLabel=Number of pairs
+YLabel=Count
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s2.yoda/MC_ColourReconstruction/numberccjetpairs //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_s2.yoda/MC_ColourReconstruction/numberccjetpairs
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s2.yoda/MC_ColourReconstruction/numberccjetpairs
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s2.yoda/MC_ColourReconstruction/numberccjetpairs
+ScaledBy=2.21887683394105124e-08
+Title=tt+jets
+# xlow	 xhigh	 val	 errminus	 errplus
+-5.000000e-01	5.000000e-01	6.500438e-01	2.459322e-03	2.459322e-03
+5.000000e-01	1.500000e+00	2.673583e-01	1.582721e-03	1.582721e-03
+1.500000e+00	2.500000e+00	6.399670e-02	7.583812e-04	7.583812e-04
+2.500000e+00	3.500000e+00	1.491703e-02	3.777740e-04	3.777740e-04
+3.500000e+00	4.500000e+00	2.917479e-03	1.537182e-04	1.537182e-04
+4.500000e+00	5.500000e+00	5.757601e-04	6.752984e-05	6.752984e-05
+5.500000e+00	6.500000e+00	1.380487e-04	4.234485e-05	4.234485e-05
+6.500000e+00	7.500000e+00	4.128046e-05	1.775112e-05	1.775112e-05
+7.500000e+00	8.500000e+00	5.741877e-06	5.741877e-06	5.741877e-06
+8.500000e+00	9.500000e+00	5.823860e-06	5.823860e-06	5.823860e-06
+9.500000e+00	1.050000e+01	0.000000e+00	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_s2.yoda/MC_ColourReconstruction/numberccjetpairs
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_s2.yoda/MC_ColourReconstruction/numberccjetpairs
+ScaledBy=1.25568501395202669e-03
+Title=tttt
+# xlow	 xhigh	 val	 errminus	 errplus
+-5.000000e-01	5.000000e-01	6.073262e-01	1.567192e-02	1.567192e-02
+5.000000e-01	1.500000e+00	2.735001e-01	1.000471e-02	1.000471e-02
+1.500000e+00	2.500000e+00	8.939036e-02	6.046937e-03	6.046937e-03
+2.500000e+00	3.500000e+00	2.275042e-02	2.982724e-03	2.982724e-03
+3.500000e+00	4.500000e+00	5.897944e-03	2.015859e-03	2.015859e-03
+4.500000e+00	5.500000e+00	6.390579e-04	4.564487e-04	4.564487e-04
+5.500000e+00	6.500000e+00	3.901298e-04	3.243313e-04	3.243313e-04
+6.500000e+00	7.500000e+00	1.138271e-04	2.097084e-04	2.097084e-04
+7.500000e+00	8.500000e+00	7.106099e-06	6.402167e-05	6.402167e-05
+8.500000e+00	9.500000e+00	-1.514299e-05	1.514299e-05	1.514299e-05
+9.500000e+00	1.050000e+01	0.000000e+00	0.000000e+00	0.000000e+00
+# END HISTO1D
+

@@ -1,0 +1,86 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+Title=(weighted) Parallel asymmetry of pull vector of highest p_t $B$-jet
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+XLabel=$|t_{\parallel}|$
+YLabel=$A_{\parallel}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+Title=CP5
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.000000e-02	4.646894e-02	1.441026e-03	1.441026e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+Title=CP5-CRrangeup
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.000000e-02	4.701341e-02	4.607014e-03	4.607014e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+ErrorBars=1
+LineColor=green
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangeup_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+Title=CP5-CRrangeup-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.000000e-02	3.291446e-02	4.602076e-03	4.602076e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+ErrorBars=1
+LineColor=orange
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+Title=CP5-CRrangedown
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.000000e-02	5.108181e-02	4.558240e-03	4.558240e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+ErrorBars=1
+LineColor=lilac
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRrangedown_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+Title=CP5-CRrangedown-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.000000e-02	2.893324e-02	4.551286e-03	4.551286e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+ErrorBars=1
+LineColor=red
+LineStyle=dashed
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/bparaproj_asymm_onebin_M
+Title=CP5-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.000000e-02	4.502858e-02	4.403097e-03	4.403097e-03
+# END HISTO1D
+

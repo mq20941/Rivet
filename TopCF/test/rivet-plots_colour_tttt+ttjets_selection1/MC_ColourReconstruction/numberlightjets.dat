@@ -1,0 +1,54 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=7
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s1.yoda/MC_ColourReconstruction/numberlightjets
+Title=Number of light jets (non b-tagged) per event
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s1.yoda/MC_ColourReconstruction/numberlightjets //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_s1.yoda/MC_ColourReconstruction/numberlightjets
+XLabel=Number of jets
+YLabel=Count
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s1.yoda/MC_ColourReconstruction/numberlightjets //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_s1.yoda/MC_ColourReconstruction/numberlightjets
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s1.yoda/MC_ColourReconstruction/numberlightjets
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_s1.yoda/MC_ColourReconstruction/numberlightjets
+ScaledBy=2.21887683394105124e-08
+Title=tt+jets
+# xlow	 xhigh	 val	 errminus	 errplus
+4.500000e+00	5.500000e+00	2.578414e-01	1.559940e-03	1.559940e-03
+5.500000e+00	6.500000e+00	3.593126e-01	1.833189e-03	1.833189e-03
+6.500000e+00	7.500000e+00	2.331073e-01	1.456906e-03	1.456906e-03
+7.500000e+00	8.500000e+00	1.015432e-01	9.700942e-04	9.700942e-04
+8.500000e+00	9.500000e+00	3.512744e-02	5.700454e-04	5.700454e-04
+9.500000e+00	1.050000e+01	9.951182e-03	3.019558e-04	3.019558e-04
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_s1.yoda/MC_ColourReconstruction/numberlightjets
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_s1.yoda/MC_ColourReconstruction/numberlightjets
+ScaledBy=1.25568501395202669e-03
+Title=tttt
+# xlow	 xhigh	 val	 errminus	 errplus
+4.500000e+00	5.500000e+00	3.360759e-01	1.032234e-02	1.032234e-02
+5.500000e+00	6.500000e+00	3.062902e-01	1.078070e-02	1.078070e-02
+6.500000e+00	7.500000e+00	1.873674e-01	8.761911e-03	8.761911e-03
+7.500000e+00	8.500000e+00	1.069364e-01	6.901400e-03	6.901400e-03
+8.500000e+00	9.500000e+00	4.428061e-02	4.934820e-03	4.934820e-03
+9.500000e+00	1.050000e+01	1.380168e-02	4.408181e-03	4.408181e-03
+# END HISTO1D
+

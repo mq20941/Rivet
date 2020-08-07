@@ -1,0 +1,89 @@
+# BEGIN PLOT
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/pull_12_all_highpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/pull_12_all_highpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff.yoda/MC_ColourFlow/pull_12_all_highpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff.yoda/MC_ColourFlow/pull_12_all_highpT
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/pull_12_all_highpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/pull_12_all_highpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff.yoda/MC_ColourFlow/pull_12_all_highpT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff.yoda/MC_ColourFlow/pull_12_all_highpT
+Title=Pull angle 1,2 between $W$-jets, all constituents, jetpT $>$ 60 GeV
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.05
+RatioPlotYLabel=Ratio
+YMin=0.8
+RatioPlotYMin=0.95
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/pull_12_all_highpT
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
+Legend=1
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/pull_12_all_highpT
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/pull_12_all_highpT
+ScaledBy=1.97596530170412423e-08
+Title=CP5-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.405215e+00	7.136758e-03	7.136758e-03
+1.666667e-01	3.333333e-01	1.168002e+00	6.507829e-03	6.507829e-03
+3.333333e-01	5.000000e-01	9.471268e-01	5.863479e-03	5.863479e-03
+5.000000e-01	6.666667e-01	8.692216e-01	5.614853e-03	5.614853e-03
+6.666667e-01	8.333333e-01	8.157147e-01	5.435564e-03	5.435564e-03
+8.333333e-01	1.000000e+00	7.947196e-01	5.367730e-03	5.367730e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/pull_12_all_highpT
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/pull_12_all_highpT
+ScaledBy=1.98313458002697685e-08
+Title=CP5-erdOn-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.401102e+00	7.141937e-03	7.141937e-03
+1.666667e-01	3.333333e-01	1.162031e+00	6.499183e-03	6.499183e-03
+3.333333e-01	5.000000e-01	9.655720e-01	5.924418e-03	5.924418e-03
+5.000000e-01	6.666667e-01	8.577220e-01	5.587628e-03	5.587628e-03
+6.666667e-01	8.333333e-01	8.127483e-01	5.439716e-03	5.439716e-03
+8.333333e-01	1.000000e+00	8.008252e-01	5.396095e-03	5.396095e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff.yoda/MC_ColourFlow/pull_12_all_highpT
+ErrorBars=1
+LineColor=green
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff.yoda/MC_ColourFlow/pull_12_all_highpT
+ScaledBy=1.71022917763101629e-08
+Title=CP5-CRoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.344641e+00	6.495743e-03	6.495743e-03
+1.666667e-01	3.333333e-01	1.150259e+00	6.009700e-03	6.009700e-03
+3.333333e-01	5.000000e-01	9.740992e-01	5.525723e-03	5.525723e-03
+5.000000e-01	6.666667e-01	8.736814e-01	5.234709e-03	5.234709e-03
+6.666667e-01	8.333333e-01	8.373663e-01	5.123739e-03	5.123739e-03
+8.333333e-01	1.000000e+00	8.199526e-01	5.068215e-03	5.068215e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff.yoda/MC_ColourFlow/pull_12_all_highpT
+ErrorBars=1
+LineColor=orange
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff.yoda/MC_ColourFlow/pull_12_all_highpT
+ScaledBy=1.70238577710046545e-08
+Title=CP5-erdOn-CRoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.362072e+00	6.521347e-03	6.521347e-03
+1.666667e-01	3.333333e-01	1.139089e+00	5.961821e-03	5.961821e-03
+3.333333e-01	5.000000e-01	9.717364e-01	5.503932e-03	5.503932e-03
+5.000000e-01	6.666667e-01	8.740150e-01	5.221378e-03	5.221378e-03
+6.666667e-01	8.333333e-01	8.322165e-01	5.096037e-03	5.096037e-03
+8.333333e-01	1.000000e+00	8.208706e-01	5.059880e-03	5.059880e-03
+# END HISTO1D
+

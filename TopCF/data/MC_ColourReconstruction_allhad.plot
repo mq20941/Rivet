@@ -30,7 +30,7 @@ YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}M_W}$
 # END PLOT
 
 # BEGIN PLOT /MC_ColourReconstruction_allhad/numberwjetpairs
-Title=Number of light jet pair combinations that have invariant mass within $40$ GeV of $W$ mass 
+Title=Number of light jet pair combinations that have invariant mass within $20$ GeV of $W$ mass 
 XLabel=Number of pairs
 YLabel=Count
 # END PLOT

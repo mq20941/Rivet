@@ -7,8 +7,8 @@ YTwosidedTicks=1
 LogY=0
 LeftMargin=1.8
 RightMargin=3
-Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
-BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
 # END PLOT
 
 # BEGIN PLOT /MC_ColourFlow/pull_12_all

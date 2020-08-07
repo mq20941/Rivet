@@ -1,0 +1,84 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_asymm_tail
+Title=Parallel asymmetry of pull vector of highest p_t $W$-jet
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.2
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_asymm_tail //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/paraproj_asymm_tail //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/paraproj_asymm_tail //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/paraproj_asymm_tail
+XLabel=$|t_{\parallel}|$
+YLabel=$A_{\parallel}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_asymm_tail //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/paraproj_asymm_tail //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/paraproj_asymm_tail //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/paraproj_asymm_tail
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.8
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_asymm_tail
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5.yoda/MC_ColourFlow/paraproj_asymm_tail
+Title=CP5
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	3.333333e-03	8.519447e-02	5.783916e-04	5.783916e-04
+3.333333e-03	6.666667e-03	1.449303e-01	1.231127e-03	1.231127e-03
+6.666667e-03	1.000000e-02	1.756136e-01	2.768225e-03	2.768225e-03
+1.000000e-02	1.333333e-02	2.371321e-01	7.010780e-03	7.010780e-03
+1.333333e-02	1.666667e-02	3.757007e-01	2.756528e-02	2.756528e-02
+1.666667e-02	2.000000e-02	1.000000e+00	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/paraproj_asymm_tail
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/paraproj_asymm_tail
+Title=CP5-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	3.333333e-03	7.681483e-02	1.766400e-03	1.766400e-03
+3.333333e-03	6.666667e-03	1.313368e-01	3.737713e-03	3.737713e-03
+6.666667e-03	1.000000e-02	1.644689e-01	8.370836e-03	8.370836e-03
+1.000000e-02	1.333333e-02	2.140133e-01	2.118490e-02	2.118490e-02
+1.333333e-02	1.666667e-02	4.874415e-01	7.970796e-02	7.970796e-02
+1.666667e-02	2.000000e-02	nan	nan	nan
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/paraproj_asymm_tail
+ErrorBars=1
+LineColor=green
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_CRoff_MPIoff.yoda/MC_ColourFlow/paraproj_asymm_tail
+Title=CP5-CRoff-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	3.333333e-03	9.971415e-02	1.939497e-03	1.939497e-03
+3.333333e-03	6.666667e-03	1.800181e-01	4.379642e-03	4.379642e-03
+6.666667e-03	1.000000e-02	1.890735e-01	9.712026e-03	9.712026e-03
+1.000000e-02	1.333333e-02	2.588278e-01	2.320970e-02	2.320970e-02
+1.333333e-02	1.666667e-02	5.295202e-01	6.880612e-02	6.880612e-02
+1.666667e-02	2.000000e-02	nan	nan	nan
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/paraproj_asymm_tail
+ErrorBars=1
+LineColor=orange
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_CRoff_MPIoff.yoda/MC_ColourFlow/paraproj_asymm_tail
+Title=CP5-erdOn-CRoff-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	3.333333e-03	9.748665e-02	1.938683e-03	1.938683e-03
+3.333333e-03	6.666667e-03	1.749196e-01	4.351442e-03	4.351442e-03
+6.666667e-03	1.000000e-02	1.962179e-01	9.615509e-03	9.615509e-03
+1.000000e-02	1.333333e-02	2.517055e-01	2.318104e-02	2.318104e-02
+1.333333e-02	1.666667e-02	3.095480e-01	8.094473e-02	8.094473e-02
+1.666667e-02	2.000000e-02	-1.000000e+00	nan	nan
+# END HISTO1D
+

@@ -1,0 +1,49 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+Title=Mass of $W$ boson calculated from jets identified as colour connected 
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_allhad_colour.yoda/MC_ColourReconstruction_allhad/ccjetsinvariantmass_s3
+XLabel=$M_{W}$ GeV
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}M_W}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_allhad_colour.yoda/MC_ColourReconstruction_allhad/ccjetsinvariantmass_s3
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=2.5
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_allhad_colour.yoda/MC_ColourReconstruction_allhad/ccjetsinvariantmass_s3
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_allhad_colour.yoda/MC_ColourReconstruction_allhad/ccjetsinvariantmass_s3
+ScaledBy=1.14588040248509679e-06
+Title=allhad
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.500000e+01	0.000000e+00	0.000000e+00	0.000000e+00
+1.500000e+01	3.000000e+01	3.913039e-04	1.029726e-04	1.029726e-04
+3.000000e+01	4.500000e+01	1.420763e-03	1.909413e-04	1.909413e-04
+4.500000e+01	6.000000e+01	1.801643e-03	2.137038e-04	2.137038e-04
+6.000000e+01	7.500000e+01	3.119745e-03	2.825126e-04	2.825126e-04
+7.500000e+01	9.000000e+01	1.132530e-02	5.408388e-04	5.408388e-04
+9.000000e+01	1.050000e+02	3.037350e-03	2.843621e-04	2.843621e-04
+1.050000e+02	1.200000e+02	2.522029e-03	2.564998e-04	2.564998e-04
+1.200000e+02	1.350000e+02	2.759725e-03	2.600847e-04	2.600847e-04
+1.350000e+02	1.500000e+02	2.470984e-03	2.470702e-04	2.470702e-04
+1.500000e+02	1.650000e+02	2.141512e-03	2.347586e-04	2.347586e-04
+1.650000e+02	1.800000e+02	2.069304e-03	2.262271e-04	2.262271e-04
+1.800000e+02	1.950000e+02	2.296497e-03	2.417085e-04	2.417085e-04
+1.950000e+02	2.100000e+02	2.069571e-03	2.322878e-04	2.322878e-04
+2.100000e+02	2.250000e+02	1.760655e-03	2.147238e-04	2.147238e-04
+2.250000e+02	2.400000e+02	2.316417e-03	2.464209e-04	2.464209e-04
+2.400000e+02	2.550000e+02	1.925329e-03	2.195981e-04	2.195981e-04
+2.550000e+02	2.700000e+02	1.812187e-03	2.104941e-04	2.104941e-04
+2.700000e+02	2.850000e+02	1.750413e-03	2.027946e-04	2.027946e-04
+2.850000e+02	3.000000e+02	1.585652e-03	2.038339e-04	2.038339e-04
+# END HISTO1D
+
