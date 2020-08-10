@@ -125,6 +125,19 @@ namespace Rivet {
       book(p_bparaproj_asymm_onebin_jetpTbins, "bparaproj_asymm_onebin_jetpTbins", 5, 20, 140);
       book(p_bparaproj_asymm_onebin_M, "bparaproj_asymm_onebin_M", 1, 0, 0.01);
       book(p_bpull_12_21_cor, "bpull_12_21_cor", 6, 0, 1);
+
+      //book counters
+      book(c_Nevents, "c_Nevents");
+      book(c_pull_12_01, "c_pull_12_01");
+      book(c_pull_12_02, "c_pull_12_02");
+      book(c_pull_12_03, "c_pull_12_03");
+      book(c_pull_12_04, "c_pull_12_04");
+      book(c_pull_12_05, "c_pull_12_05");
+      book(c_bpull_12_01, "c_bpull_12_01");
+      book(c_bpull_12_02, "c_bpull_12_02");
+      book(c_bpull_12_03, "c_bpull_12_03");
+      book(c_bpull_12_04, "c_bpull_12_04");
+      book(c_bpull_12_05, "c_bpull_12_05");
     
     } 
 
@@ -331,6 +344,26 @@ namespace Rivet {
            h_wJet1_pT->fill(wJets[i].pT());
            h_wJet2_pT->fill(wJets[j].pT());
 
+           if((pull_angle_12_all/Rivet::PI) < 0.1){
+             c_pull_12_01->fill();
+           }
+
+           if((pull_angle_12_all/Rivet::PI) < 0.2){
+             c_pull_12_02->fill();
+           }
+
+           if((pull_angle_12_all/Rivet::PI) < 0.3){
+             c_pull_12_03->fill();
+           }
+
+           if((pull_angle_12_all/Rivet::PI) < 0.4){
+             c_pull_12_04->fill();
+           }
+
+           if((pull_angle_12_all/Rivet::PI) < 0.5){
+             c_pull_12_05->fill();
+           }
+
            }  
        
         }
@@ -369,6 +402,30 @@ namespace Rivet {
 
      double leading_w_b_pull_all = CalculatePullAngle(wJets[0], bJets[0], 0);
      h_leading_w_b_pull_all->fill(leading_w_b_pull_all / Rivet::PI);
+
+     if((bpull_angle_12_all/Rivet::PI) < 0.1){
+       c_bpull_12_01->fill();
+     }
+
+     if((bpull_angle_12_all/Rivet::PI) < 0.2){
+       c_bpull_12_02->fill();
+     }
+
+     if((bpull_angle_12_all/Rivet::PI) < 0.3){
+       c_bpull_12_03->fill();
+     }
+
+     if((bpull_angle_12_all/Rivet::PI) < 0.4){
+       c_bpull_12_04->fill();
+     }
+
+     if((bpull_angle_12_all/Rivet::PI) < 0.5){
+       c_bpull_12_05->fill();
+     }
+
+     c_Nevents->fill();
+
+
 
     }//end of per-event analysis 
 
@@ -575,6 +632,18 @@ namespace Rivet {
     Histo1DPtr h_pull_both_all_veryhighpT;
     Histo1DPtr h_bpullmagnitudej1_all;
     Histo1DPtr h_leading_w_b_pull_all;
+
+    CounterPtr c_Nevents;
+    CounterPtr c_pull_12_01;
+    CounterPtr c_pull_12_02;
+    CounterPtr c_pull_12_03;
+    CounterPtr c_pull_12_04;
+    CounterPtr c_pull_12_05;
+    CounterPtr c_bpull_12_01;
+    CounterPtr c_bpull_12_02;
+    CounterPtr c_bpull_12_03;
+    CounterPtr c_bpull_12_04;
+    CounterPtr c_bpull_12_05;
   };
 
 

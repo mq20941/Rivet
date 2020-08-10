@@ -173,6 +173,7 @@ namespace Rivet {
       }
       h_numberccjetpairs_s1->fill(numberccjetpairs_s1);
 
+
       //PULL ANGLE SELECTION 2 (tight):
       //Reconstructing W from light jets with colour connection information via pull angle 
       double numberccjetpairs_s2 = 0;
@@ -182,13 +183,13 @@ namespace Rivet {
          double pull_12 = CalculatePullAngle(ljets[i], ljets[j], 0);
          double pull_21 = CalculatePullAngle(ljets[j], ljets[i], 0);
          double ccjetsinvariantmass = fabs(CalculateInvariantMass(ljets[i], ljets[j]));
-         if ((pull_12 / Rivet::PI) < 0.5 && (pull_21 / Rivet::PI) < 0.5 && !doublecount_s1.count(i) && !doublecount_s1.count(j)) {
+         if ((pull_12 / Rivet::PI) < 0.5 && (pull_21 / Rivet::PI) < 0.5 && !doublecount_s2.count(i) && !doublecount_s2.count(j)) {
            numberccjetpairs_s2 += 1; 
            h_ccjetsinvariantmass_s2->fill(ccjetsinvariantmass);
            h_pull_12_s2->fill(pull_12 / Rivet::PI);
            h_pull_21_s2->fill(pull_21 / Rivet::PI);
-           doublecount_s1.insert(i);
-           doublecount_s1.insert(j);
+           doublecount_s2.insert(i);
+           doublecount_s2.insert(j);
          }
        }
       }

@@ -247,7 +247,7 @@ namespace Rivet {
         size_t j = ccjet2index[i];
         size_t k = ccjet2index[j];
         double ccjetsinvariantmass = fabs(CalculateInvariantMass(lJets[i], lJets[j]));
-        if (k == i && !doublecount_s1.count(i) && !doublecount_s1.count(j)) {
+        if (!doublecount_s1.count(i) && !doublecount_s1.count(j)) {
           numberccjetpairs_s1 += 1;
           h_ccjetsinvariantmass_s1->fill(ccjetsinvariantmass);
           double pull_12 = CalculatePullAngle(lJets[i], lJets[j], 0);
