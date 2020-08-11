@@ -1,0 +1,56 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=8
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberccjetpairs_s1
+Title=Number of light jet pair combinations that are identified as colour connected
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberccjetpairs_s1 //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/numberccjetpairs_s1
+XLabel=Number of pairs
+YLabel=Count
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberccjetpairs_s1 //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/numberccjetpairs_s1
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=2.5
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberccjetpairs_s1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberccjetpairs_s1
+ScaledBy=1.59892700411374464e-06
+Title=tt+jets
+# xlow	 xhigh	 val	 errminus	 errplus
+-5.000000e-01	5.000000e-01	3.157201e-01	1.504879e-02	1.504879e-02
+5.000000e-01	1.500000e+00	5.617828e-01	1.952639e-02	1.952639e-02
+1.500000e+00	2.500000e+00	1.216624e-01	8.795017e-03	8.795017e-03
+2.500000e+00	3.500000e+00	8.346683e-04	5.902019e-04	5.902019e-04
+3.500000e+00	4.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+4.500000e+00	5.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+5.500000e+00	6.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+6.500000e+00	7.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+7.500000e+00	8.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/numberccjetpairs_s1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/numberccjetpairs_s1
+ScaledBy=3.98815264366321996e-03
+Title=4t
+# xlow	 xhigh	 val	 errminus	 errplus
+-5.000000e-01	5.000000e-01	2.852782e-01	1.927702e-02	1.927702e-02
+5.000000e-01	1.500000e+00	5.765271e-01	2.864371e-02	2.864371e-02
+1.500000e+00	2.500000e+00	1.322122e-01	1.429664e-02	1.429664e-02
+2.500000e+00	3.500000e+00	5.748145e-03	2.911957e-03	2.911957e-03
+3.500000e+00	4.500000e+00	2.342723e-04	2.342723e-04	2.342723e-04
+4.500000e+00	5.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+5.500000e+00	6.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+6.500000e+00	7.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+7.500000e+00	8.500000e+00	0.000000e+00	0.000000e+00	0.000000e+00
+# END HISTO1D
+

@@ -1,0 +1,35 @@
+# BEGIN PLOT
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/wnonwjets_pull_12
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/wnonwjets_pull_12
+Title=(forwards) Pull angle between leading W jet and non-W jet 
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+YMin=0.7
+RatioPlotYMin=0.6
+XTwosidedTicks=1
+YTwosidedTicks=1
+YMax=1.5
+RightMargin=7
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+XLabel=$\phi(j_1, j_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_2)}$
+Legend=1
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/wnonwjets_pull_12
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/wnonwjets_pull_12
+ScaledBy=5.12929578364538359e-09
+Title=tt+jets
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.044493e+00	3.347119e-03	3.347119e-03
+2.000000e-01	4.000000e-01	1.016492e+00	3.304073e-03	3.304073e-03
+4.000000e-01	6.000000e-01	9.893280e-01	3.248936e-03	3.248936e-03
+6.000000e-01	8.000000e-01	9.775060e-01	3.238808e-03	3.238808e-03
+8.000000e-01	1.000000e+00	9.721815e-01	3.232927e-03	3.232927e-03
+# END HISTO1D
+

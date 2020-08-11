@@ -1,0 +1,35 @@
+# BEGIN PLOT
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/leadingjets_pull_12
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/leadingjets_pull_12
+Title=(forwards) Pull angle of leading light jets 
+Variations=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+YMin=0.7
+RatioPlotYMin=0.6
+XTwosidedTicks=1
+YTwosidedTicks=1
+YMax=1.5
+RightMargin=7
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0,isr_murfac=0.5,isr_murfac=2.0,
+XLabel=$\phi(j_1, j_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_2)}$
+Legend=1
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/leadingjets_pull_12
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour.yoda/MC_ColourReconstruction/leadingjets_pull_12
+ScaledBy=1.80416534591683242e-08
+Title=tt+jets
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.132903e+00	6.567844e-03	6.567844e-03
+2.000000e-01	4.000000e-01	1.034598e+00	6.244834e-03	6.244834e-03
+4.000000e-01	6.000000e-01	9.776790e-01	6.088530e-03	6.088530e-03
+6.000000e-01	8.000000e-01	9.371375e-01	5.959555e-03	5.959555e-03
+8.000000e-01	1.000000e+00	9.176830e-01	5.870686e-03	5.870686e-03
+# END HISTO1D
+

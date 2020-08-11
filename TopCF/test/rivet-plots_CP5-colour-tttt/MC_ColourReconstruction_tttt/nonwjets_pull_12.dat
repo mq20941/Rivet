@@ -1,0 +1,33 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+YMax=1.6
+RightMargin=7
+Title=(forwards) Pull angle between non-W jets
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/nonwjets_pull_12
+XLabel=$\phi(j_1, j_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_2)}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/nonwjets_pull_12
+YMin=0.6
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/nonwjets_pull_12
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/nonwjets_pull_12
+ScaledBy=4.28380654855874728e-03
+Title=4t
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.180459e+00	1.216330e-01	1.216330e-01
+2.000000e-01	4.000000e-01	8.917425e-01	1.261079e-01	1.261079e-01
+4.000000e-01	6.000000e-01	1.155376e+00	1.218746e-01	1.218746e-01
+6.000000e-01	8.000000e-01	9.759330e-01	1.189398e-01	1.189398e-01
+8.000000e-01	1.000000e+00	7.964890e-01	9.973738e-02	9.973738e-02
+# END HISTO1D
+

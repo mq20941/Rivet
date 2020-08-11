@@ -1,0 +1,32 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=7
+Title=Number of light jets (non b-tagged) per event
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/numberlightjets
+XLabel=Number of jets
+YLabel=Count
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/numberlightjets
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/numberlightjets
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/numberlightjets
+ScaledBy=2.57239772181780488e-03
+Title=4t
+# xlow	 xhigh	 val	 errminus	 errplus
+5.500000e+00	6.500000e+00	4.537870e-01	1.918871e-02	1.918871e-02
+6.500000e+00	7.500000e+00	2.855525e-01	1.599000e-02	1.599000e-02
+7.500000e+00	8.500000e+00	1.621257e-01	1.273798e-02	1.273798e-02
+8.500000e+00	9.500000e+00	7.302756e-02	9.913876e-03	9.913876e-03
+9.500000e+00	1.050000e+01	1.793922e-02	6.864979e-03	6.864979e-03
+1.050000e+01	1.150000e+01	5.553077e-03	2.648298e-03	2.648298e-03
+# END HISTO1D
+

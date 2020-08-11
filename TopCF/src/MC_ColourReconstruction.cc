@@ -60,28 +60,25 @@ namespace Rivet {
       declare(fjets, "jets"); 
 
       //book histograms
-      book(h_lightjetsinvariantmass, "lightjetsinvariantmass", 20, 0, 300);
-      book(h_leading_lightjetsinvariantmass, "leading_lightjetsinvariantmass", 20, 0, 300);
-      book(h_numberwjetpairs, "numberwjetpairs", 11, -0.5, 10.5);
-      book(h_numberccjetpairs_s1, "numberccjetpairs_s1", 6, -0.5, 5.5);
-      book(h_numberccjetpairs_s2, "numberccjetpairs_s2", 6, -0.5, 5.5);
-      book(h_numberccjetpairs_s3, "numberccjetpairs_s3", 6, -0.5, 5.5);
-      book(h_numberlightjets, "numberlightjets", 6, 2.5, 8.5);
-      book(h_numberbjets, "numberbjets", 4, 1.5, 5.5);
-      book(h_numberwjets, "numberwjets", 7, -0.5, 6.5);
-      book(h_pull_wj1wj2, "pull_wj1wj2", 6, 0, 1);
-      book(h_Ht, "Ht", 20, 500, 1500);
-      book(h_ccjetsinvariantmass_s1, "ccjetsinvariantmass_s1", 20, 0, 300);
-      book(h_ccjetsinvariantmass_s2, "ccjetsinvariantmass_s2", 20, 0, 300);
-      book(h_ccjetsinvariantmass_s3, "ccjetsinvariantmass_s3", 20, 0, 300);
-      book(h_pull_12_s1, "pull_12_s1", 6, 0, 1);
-      book(h_pull_21_s1, "pull_21_s1", 6, 0, 1);
-      book(h_pull_12_s2, "pull_12_s2", 6, 0, 1);
-      book(h_pull_21_s2, "pull_21_s2", 6, 0, 1);
-      book(h_pull_12_s3, "pull_12_s3", 6, 0, 1);
-      book(h_pull_21_s3, "pull_21_s3", 6, 0, 1);
+      //book(h_numberwjets, "numberwjets", 5, -0.5, 4.5);
+      book(h_numberbjets, "numberbjets", 5, -0.5, 4.5);
+      book(h_numberlightjets, "numberlightjets", 10, -0.5, 9.5);
+      //book(h_numberbjets_sanity, "numberbjets_sanity", 5, -0.5, 4.5);
+      book(h_leadingjetsinvariantmass, "leadingjetsinvariantmass", 150, 0, 300);
+      book(h_leadingjets_pull_12, "leadingjets_pull_12", 5, 0, 1);
+      book(h_jets13invariantmass, "jets13invariantmass", 30, 0, 300);
+      book(h_jets13_pull_12, "jets13_pull_12", 5, 0, 1);
+      book(h_jets23invariantmass, "jets23invariantmass", 30, 0, 300);
+      book(h_jets23_pull_12, "jets23_pull_12", 5, 0, 1);
+      book(h_wjetsinvariantmass, "wjetsinvariantmass", 150, 0, 300);
+      book(h_wnonwjets_pull_12, "wnonwjets_pull_12", 5, 0, 1);
+      book(h_nonwjets_pull_12, "nonwjets_pull_12", 5, 0, 1);
+      book(h_wjet1index, "wjet1index", 10, -0.5, 9.5);
+      book(h_wjet2index, "wjet2index", 10, -0.5, 9.5);
+      book(h_wjets_pull_12, "wjets_pull_12", 5, 0, 1);
+      book(h_lightjetsinvariantmass, "lightjetsinvariantmass", 300, 0, 300);
+      book(h_lightjets_pull_12, "lightjets_pull_12", 5, 0, 1);
 
-    
     } 
 
     /// Perform the per-event analysis
@@ -90,7 +87,7 @@ namespace Rivet {
       /**************
        *    JETS    *
        **************/
-      const Jets& allJets = apply<FastJets>(event, "jets").jetsByPt(Cuts::pT > 80.0*GeV && Cuts::absrap < 2.5); //jet pT,rap cut //80pT jet pT cut makes pull angle smaller
+      const Jets& allJets = apply<FastJets>(event, "jets").jetsByPt(Cuts::pT > 20.0*GeV && Cuts::absrap < 2.5); //jet pT,rap cut //80pT jet pT cut makes pull angle smaller
       const vector<DressedLepton>& all_elecs = apply<DressedLeptons>(event, "ELECS").dressedLeptons();
       const vector<DressedLepton>& all_muons = apply<DressedLeptons>(event, "MUONS").dressedLeptons();
       Jets goodJets;
@@ -110,7 +107,7 @@ namespace Rivet {
         for (const Jet j : goodJets)  keep &= deltaR(j, mu) >= 0.4;
         if (keep && mu.pt() > 15*GeV) {
           vetoMuons.push_back(mu);
-          if (mu.pt() > 26*GeV)  muons.push_back(mu); //muon pT cut 
+          if (mu.pt() > 20*GeV)  muons.push_back(mu); //muon pT cut 
         } //vetoMuons looser cut than muons, muons subsection of vetomuons
       }
 
@@ -120,7 +117,7 @@ namespace Rivet {
         for (const Jet j : goodJets)  keep &= deltaR(j, el) >= 0.4;
         if (keep && el.pt() > 15*GeV) {
           vetoElecs.push_back(el);;
-          if (el.pt() > 35*GeV)  elecs.push_back(el); //electron pT cut 
+          if (el.pt() > 20*GeV)  elecs.push_back(el); //electron pT cut 
         }
       }
 
@@ -151,7 +148,7 @@ namespace Rivet {
         metVector += n.momentum();
       }
       double met = metVector.pt();
-      if (met <= 50*GeV)  vetoEvent; //supress residual QCD background, mono-leptonic events 
+      if (met <= 20*GeV)  vetoEvent; //supress residual QCD background, mono-leptonic events 
 
       /****************
        *    B-JETS    *
@@ -173,131 +170,85 @@ namespace Rivet {
         Ht += j.pT();
       }
 
-      if (Ht < 500*GeV) vetoEvent; //sum of all jets pT cut, supress tt+jets background 
-      h_Ht->fill(Ht); 
-
-      if ( bJets.size() < 2 || lJets.size() < 2 )  vetoEvent; //number b jets cut
+      if ( bJets.size() < 2 || lJets.size() < 2 )  vetoEvent; //b jets multiplicity cut
       h_numberlightjets->fill(lJets.size());
       h_numberbjets->fill(bJets.size());
       
 
       //Find W jets
+      //Jets wJets;
+      //for(Jet j : lJets) {
+      //  if (fromW(j)) wJets +=j;
+      //}
+      //h_numberwjets->fill(wJets.size());
+
+      //Jets bJets_sanity;
+      //for (Jet j : goodJets) {
+      //  if (fromBottom(j)) bJets_sanity +=j;
+      //}
+      //h_numberbjets_sanity->fill(bJets_sanity.size());
+
+      double leadingjetsinvariantmass = CalculateInvariantMass(lJets[0], lJets[1]);
+      h_leadingjetsinvariantmass->fill(leadingjetsinvariantmass);
+      double leadingjets_pull_12 = CalculatePullAngle(lJets[0], lJets[1], 0);
+      h_leadingjets_pull_12->fill(leadingjets_pull_12/Rivet::PI);
+
+      if (lJets.size() >= 3) {
+        double jets13invariantmass = CalculateInvariantMass(lJets[0], lJets[2]);
+        h_jets13invariantmass->fill(jets13invariantmass);
+        double jets13_pull_12 = CalculatePullAngle(lJets[0], lJets[2], 0);
+        h_jets13_pull_12->fill(jets13_pull_12/Rivet::PI);
+
+        double jets23invariantmass = CalculateInvariantMass(lJets[1], lJets[2]);
+        h_jets23invariantmass->fill(jets23invariantmass);
+        double jets23_pull_12 = CalculatePullAngle(lJets[1], lJets[2], 0);
+        h_jets23_pull_12->fill(jets23_pull_12/Rivet::PI);
+      }
+
       Jets wJets;
-      for(Jet j : lJets) {
-        bool w_tagged = false;
-        Particles& constituents = j.particles();
-        for ( Particle p : constituents) {
-          w_tagged |= p.hasAncestorWith(Cuts::abspid == PID::TQUARK);
+      double Wcandmass = 1000*GeV;
+      size_t wjet1index = 100;
+      size_t wjet2index = 100;
+      for (size_t i = 0; i < lJets.size()-1; ++i) {
+        for (size_t j = i + 1; j < lJets.size(); ++j) {
+          double dijetinvariantmass = CalculateInvariantMass(lJets[i], lJets[j]);
+          h_lightjetsinvariantmass->fill(dijetinvariantmass);
+          double lightjets_pull_12 = CalculatePullAngle(lJets[i], lJets[j], 0);
+          h_lightjets_pull_12->fill(lightjets_pull_12/Rivet::PI);
+          if (fabs(dijetinvariantmass - 80.4*GeV) < fabs(Wcandmass - 80.4*GeV)) {
+            Wcandmass = dijetinvariantmass;
+            wjet1index = i;
+            wjet2index = j;
+          }
         }
-        if (w_tagged) wJets += j;
       }
+      h_wjetsinvariantmass->fill(fabs(Wcandmass));
+      h_wjet1index->fill(wjet1index);
+      h_wjet2index->fill(wjet2index);
 
-      if (wJets.size() >= 2) {
-        double pull_wj1wj2 = CalculatePullAngle(wJets[0], wJets[1], 0);
-        h_pull_wj1wj2->fill(pull_wj1wj2 / Rivet::PI);
-      }
-      h_numberwjets->fill(wJets.size());
+      if (wjet1index != 100 && wjet2index != 100) {
+        wJets += lJets[wjet1index];
+        wJets += lJets[wjet2index];
 
+        double wjets_pull_12 = CalculatePullAngle(wJets[0], wJets[1], 0);
+        h_wjets_pull_12->fill(wjets_pull_12/Rivet::PI);
 
-
-      double numberwjetpairs = 0;
-      for (size_t i = 0; i < lJets.size()-1; ++i) { 
-       for (size_t j = i + 1; j < lJets.size(); ++j) {
-         double lightjetsinvariantmass = fabs(CalculateInvariantMass(lJets[i], lJets[j]));
-         h_lightjetsinvariantmass->fill(lightjetsinvariantmass);
-         if (lightjetsinvariantmass > 60*GeV && lightjetsinvariantmass < 100*GeV) { 
-           numberwjetpairs += 1;
-         }
-       }
-      }
-
-      h_numberwjetpairs->fill(numberwjetpairs);
-
-      double leading_lightjetsinvariantmass = fabs(CalculateInvariantMass(lJets[0], lJets[1]));
-      h_leading_lightjetsinvariantmass->fill(leading_lightjetsinvariantmass);
-      
-      //PULL ANGLE SELECTION 1:
-      //Finding colour connected jets from light jets (non-b)
-      //Must be colour connected in both directions: if jet a cc with jet b, then jet b must be cc with jet a
-      double numberccjetpairs_s1 = 0;
-      vector<size_t> ccjet1index;
-      vector<size_t> ccjet2index;
-      set<size_t> doublecount_s1; //to prevent double counting of jet pairs in loop 
-      for (size_t i = 0; i < lJets.size(); ++i) {
-        double pull_12_min = Rivet::PI;
-        size_t jet1index = i;
-        size_t jet2index = 100;
-        for(size_t j = 0; j < lJets.size(); ++j) {
-          if (j != i) {
-            double pull_12 = CalculatePullAngle(lJets[i], lJets[j], 0);
-            if (pull_12 < pull_12_min) {
-              pull_12_min = pull_12;
-              jet2index = j;
+        for (size_t i = 0; i < lJets.size()-1; ++i) {
+          if (i != wjet1index && i != wjet2index) {
+            double wnonwjets_pull_12 = CalculatePullAngle(wJets[0], lJets[i], 0);
+            h_wnonwjets_pull_12->fill(wnonwjets_pull_12/Rivet::PI);
+            for (size_t j = i + 1; j < lJets.size(); ++j) {
+              if (j != wjet1index && j != wjet2index) {
+                double nonwjets_pull_12 = CalculatePullAngle(lJets[i], lJets[j], 0);
+                h_nonwjets_pull_12->fill(nonwjets_pull_12/Rivet::PI);
+              }
             }
           }
-
-        }
-        if (jet2index != 100) { //if cc jets found
-          ccjet1index.push_back(jet1index);
-          ccjet2index.push_back(jet2index);
         }
       }
 
-      for (size_t i = 0; i < ccjet1index.size(); ++i) {
-        size_t j = ccjet2index[i];
-        size_t k = ccjet2index[j];
-        double ccjetsinvariantmass = fabs(CalculateInvariantMass(lJets[i], lJets[j]));
-        if (!doublecount_s1.count(i) && !doublecount_s1.count(j)) {
-          numberccjetpairs_s1 += 1;
-          h_ccjetsinvariantmass_s1->fill(ccjetsinvariantmass);
-          double pull_12 = CalculatePullAngle(lJets[i], lJets[j], 0);
-          h_pull_12_s1->fill(pull_12 / Rivet::PI);
-          double pull_21 = CalculatePullAngle(lJets[j], lJets[i], 0);
-          h_pull_21_s1->fill(pull_21 / Rivet::PI);
-          doublecount_s1.insert(i);
-          doublecount_s1.insert(j);
-        }
-      }
-      h_numberccjetpairs_s1->fill(numberccjetpairs_s1);
 
-      //PULL ANGLE SELECTION 2 (tight):
-      //Reconstructing W from light jets with colour connection information via pull angle 
-      double numberccjetpairs_s2 = 0;
-      for (size_t i = 0; i < lJets.size()-1; ++i) { 
-       for (size_t j = i + 1; j < lJets.size(); ++j) {
-         double pull_12 = CalculatePullAngle(lJets[i], lJets[j], 0);
-         double pull_21 = CalculatePullAngle(lJets[j], lJets[i], 0);
-         double ccjetsinvariantmass = fabs(CalculateInvariantMass(lJets[i], lJets[j]));
-         if ((pull_12 / Rivet::PI) < 0.5 && (pull_21 / Rivet::PI) < 0.5) {
-           numberccjetpairs_s2 += 1; 
-           h_ccjetsinvariantmass_s2->fill(ccjetsinvariantmass);
-           h_pull_12_s2->fill(pull_12 / Rivet::PI);
-           h_pull_21_s2->fill(pull_21 / Rivet::PI);
-         }
-       }
-      }
-      h_numberccjetpairs_s2->fill(numberccjetpairs_s2);
-      
-      
-      //PULL ANGLE SELECTION 3 (loose):
-      //Reconstructing W from light jets with colour connection information via pull angle 
-      double numberccjetpairs_s3 = 0;
-      set<size_t> doublecount_s3;
-      for (size_t i = 0; i < lJets.size()-1; ++i) { 
-       for (size_t j = i + 1; j < lJets.size(); ++j) {
-         double pull_12 = CalculatePullAngle(lJets[i], lJets[j], 0);
-         double pull_21 = CalculatePullAngle(lJets[j], lJets[i], 0);
-         double ccjetsinvariantmass = fabs(CalculateInvariantMass(lJets[i], lJets[j]));
-         if ((pull_12 / Rivet::PI) < 0.5 || (pull_21 / Rivet::PI) < 0.5) {
-           numberccjetpairs_s3 += 1; 
-           h_ccjetsinvariantmass_s3->fill(ccjetsinvariantmass);
-           h_pull_12_s3->fill(pull_12 / Rivet::PI);
-           h_pull_21_s3->fill(pull_21 / Rivet::PI);
-         }
-       }
-      }
-      h_numberccjetpairs_s3->fill(numberccjetpairs_s3);
-      
+
 
     }//end of per-event analysis 
 
@@ -342,59 +293,83 @@ namespace Rivet {
      
      return totalmom.mass();
    }
- 
+
+   bool fromW(Jet& jet) {
+     bool w_tagged = false;
+     Particles& constituents = jet.particles();
+     for (Particle p : constituents) {
+       Particles ancestors = p.ancestors();
+       for (Particle m : ancestors) {
+         bool ContainsW = false;
+         const PdgId pid = m.pid();
+         if (pid == PID::WMINUS || pid == PID::WPLUS) ContainsW = true;
+         w_tagged|= ContainsW;
+       }
+     }
+     return w_tagged;
+    }
+
+    bool fromBottom(Jet& jet) {
+     bool b_tagged = false;
+     Particles& constituents = jet.particles();
+     for (Particle p : constituents) {
+       Particles ancestors = p.ancestors();
+       for (Particle m : ancestors) {
+         bool Containsb = false;
+         const PdgId pid = m.pid();
+         if (PID::isHadron(pid) && PID::hasBottom(pid)) Containsb = true;
+         b_tagged |= Containsb;
+       }
+     }
+     return b_tagged;
+    }
+   
+
     // Void finalize() is called after a run is finished. 
     // Here the analysis class should do whatever manipulations are necessary on the histograms.
     void finalize() {
-      normalize(h_lightjetsinvariantmass);
-      normalize(h_leading_lightjetsinvariantmass);
-      normalize(h_numberwjetpairs);
-      normalize(h_numberccjetpairs_s1);
-      normalize(h_numberccjetpairs_s2);
-      normalize(h_numberccjetpairs_s3);
+      //normalize(h_numberwjets);
       normalize(h_numberlightjets);
       normalize(h_numberbjets);
-      normalize(h_numberwjets);
-      normalize(h_pull_wj1wj2);
-      normalize(h_Ht);
-      normalize(h_ccjetsinvariantmass_s1);
-      normalize(h_ccjetsinvariantmass_s2);
-      normalize(h_ccjetsinvariantmass_s3);
-      normalize(h_pull_12_s1);
-      normalize(h_pull_21_s1);
-      normalize(h_pull_12_s2);
-      normalize(h_pull_21_s2);
-      normalize(h_pull_12_s3);
-      normalize(h_pull_21_s3);
-
+      //normalize(h_numberbjets_sanity);
+      normalize(h_leadingjetsinvariantmass);
+      normalize(h_leadingjets_pull_12);
+      normalize(h_jets13invariantmass);
+      normalize(h_jets13_pull_12);
+      normalize(h_jets23invariantmass);
+      normalize(h_jets23_pull_12);
+      normalize(h_wjetsinvariantmass);
+      normalize(h_wnonwjets_pull_12);
+      normalize(h_nonwjets_pull_12);
+      normalize(h_wjet1index);
+      normalize(h_wjet2index);
+      normalize(h_wjets_pull_12);
+      normalize(h_lightjetsinvariantmass);
+      normalize(h_lightjets_pull_12);
     }
 
     //@}
 
-
   private:
 
-    Histo1DPtr h_lightjetsinvariantmass;
-    Histo1DPtr h_leading_lightjetsinvariantmass;
-    Histo1DPtr h_numberwjetpairs;
-    Histo1DPtr h_numberccjetpairs_s1;
-    Histo1DPtr h_numberccjetpairs_s2;
-    Histo1DPtr h_numberccjetpairs_s3;
+    //Histo1DPtr h_numberwjets;
     Histo1DPtr h_numberlightjets;
     Histo1DPtr h_numberbjets;
-    Histo1DPtr h_Ht;
-    Histo1DPtr h_numberwjets;
-    Histo1DPtr h_pull_wj1wj2;
-    Histo1DPtr h_ccjetsinvariantmass_s1;
-    Histo1DPtr h_ccjetsinvariantmass_s2;
-    Histo1DPtr h_ccjetsinvariantmass_s3;
-    Histo1DPtr h_pull_12_s1;
-    Histo1DPtr h_pull_21_s1;
-    Histo1DPtr h_pull_12_s2;
-    Histo1DPtr h_pull_21_s2;
-    Histo1DPtr h_pull_12_s3;
-    Histo1DPtr h_pull_21_s3;
-
+    //Histo1DPtr h_numberbjets_sanity;
+    Histo1DPtr h_leadingjetsinvariantmass;
+    Histo1DPtr h_leadingjets_pull_12;
+    Histo1DPtr h_jets13invariantmass;
+    Histo1DPtr h_jets13_pull_12;
+    Histo1DPtr h_jets23invariantmass;
+    Histo1DPtr h_jets23_pull_12;
+    Histo1DPtr h_wjetsinvariantmass;
+    Histo1DPtr h_wnonwjets_pull_12;
+    Histo1DPtr h_nonwjets_pull_12;
+    Histo1DPtr h_wjet1index;
+    Histo1DPtr h_wjet2index;
+    Histo1DPtr h_wjets_pull_12;
+    Histo1DPtr h_lightjetsinvariantmass;
+    Histo1DPtr h_lightjets_pull_12;
 
   };
 

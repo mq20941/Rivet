@@ -1,0 +1,33 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+YMax=1.6
+RightMargin=7
+Title=(forwards) Pull angle of leading light jets 
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/leadingjets_pull_12
+XLabel=$\phi(j_1, j_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_2)}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/leadingjets_pull_12
+YMin=0.6
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/leadingjets_pull_12
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/leadingjets_pull_12
+ScaledBy=2.57239772181780488e-03
+Title=4t
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.157825e+00	7.493342e-02	7.493342e-02
+2.000000e-01	4.000000e-01	1.036728e+00	6.650378e-02	6.650378e-02
+4.000000e-01	6.000000e-01	9.499750e-01	7.506802e-02	7.506802e-02
+6.000000e-01	8.000000e-01	9.634100e-01	7.086614e-02	7.086614e-02
+8.000000e-01	1.000000e+00	8.920610e-01	5.493935e-02	5.493935e-02
+# END HISTO1D
+

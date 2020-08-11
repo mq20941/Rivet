@@ -1,0 +1,33 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+YMax=1.6
+RightMargin=7
+Title=(forwards) Pull angle between W1, W3 jets
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/w1w3jets_pull_12
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/w1w3jets_pull_12
+YMin=0.6
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/w1w3jets_pull_12
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/w1w3jets_pull_12
+ScaledBy=2.59331900068713239e-03
+Title=4t
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.151228e+00	8.053378e-02	8.053378e-02
+2.000000e-01	4.000000e-01	9.499010e-01	6.068733e-02	6.068733e-02
+4.000000e-01	6.000000e-01	9.753605e-01	7.114522e-02	7.114522e-02
+6.000000e-01	8.000000e-01	9.224510e-01	7.108043e-02	7.108043e-02
+8.000000e-01	1.000000e+00	1.001060e+00	6.116760e-02	6.116760e-02
+# END HISTO1D
+

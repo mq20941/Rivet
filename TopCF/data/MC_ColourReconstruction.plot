@@ -53,3 +53,58 @@ XLabel=Number of jets
 YLabel=Count
 # END PLOT
 
+# BEGIN PLOT /MC_ColourReconstruction/leadingjets_pull_12
+Title=(forwards) Pull angle of leading light jets 
+YMin=0.7
+YMax=1.5
+XLabel=$\phi(j_1, j_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_2)}$
+# END PLOT
+
+# BEGIN PLOT /MC_ColourReconstruction/jets13_pull_12
+Title=(forwards) Pull angle of light jets 1 and 3
+YMin=0.7
+YMax=1.5
+XLabel=$\phi(j_1, j_3) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_3)}$
+# END PLOT
+
+# BEGIN PLOT /MC_ColourReconstruction/jets23_pull_12
+Title=(forwards) Pull angle of light jets 2 and 3
+YMin=0.7
+YMax=1.5
+XLabel=$\phi(j_1, j_3) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_3)}$
+# END PLOT
+
+# BEGIN PLOT /MC_ColourReconstruction/wnonwjets_pull_12
+Title=(forwards) Pull angle between leading W jet and non-W jet 
+YMin=0.7
+YMax=1.5
+XLabel=$\phi(j_1, j_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_2)}$
+# END PLOT
+
+# BEGIN PLOT /MC_ColourReconstruction/nonwjets_pull_12
+Title=(forwards) Pull angle between non-W jets
+YMin=0.7
+YMax=1.5
+XLabel=$\phi(j_1, j_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_2)}$
+# END PLOT
+
+# BEGIN PLOT /MC_ColourReconstruction/wjets_pull_12
+Title=(forwards) Pull angle between W jets
+YMin=0.7
+YMax=1.5
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
+# END PLOT
+
+# BEGIN PLOT /MC_ColourReconstruction/lightjets_pull_12
+Title=(forwards) Pull angle of all light jet combinations
+YMin=0.7
+YMax=1.5
+XLabel=$\phi(j_1, j_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_2)}$
+# END PLOT

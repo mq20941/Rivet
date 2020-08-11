@@ -1,0 +1,33 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+YMax=1.6
+RightMargin=7
+Title=(forwards) Pull angle of light jets 2 and 3
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/jets23_pull_12
+XLabel=$\phi(j_1, j_3) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j_1,j_3)}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/jets23_pull_12
+YMin=0.6
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/jets23_pull_12
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour.yoda/MC_ColourReconstruction_tttt/jets23_pull_12
+ScaledBy=2.57239772181780488e-03
+Title=4t
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.203218e+00	7.979986e-02	7.979986e-02
+2.000000e-01	4.000000e-01	1.033778e+00	7.041900e-02	7.041900e-02
+4.000000e-01	6.000000e-01	9.204090e-01	6.545340e-02	6.545340e-02
+6.000000e-01	8.000000e-01	9.682270e-01	5.884964e-02	5.884964e-02
+8.000000e-01	1.000000e+00	8.743680e-01	6.811050e-02	6.811050e-02
+# END HISTO1D
+

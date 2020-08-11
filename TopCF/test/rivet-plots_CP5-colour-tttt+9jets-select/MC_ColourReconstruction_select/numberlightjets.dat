@@ -1,0 +1,45 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=8
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberlightjets
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberlightjets //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/numberlightjets
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberlightjets //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/numberlightjets
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=2.5
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberlightjets
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/numberlightjets
+ScaledBy=1.59892700411374464e-06
+Title=tt+jets
+# xlow	 xhigh	 val	 errminus	 errplus
+4.500000e+00	5.700000e+00	4.077848e-01	1.513284e-02	1.513284e-02
+5.700000e+00	6.900000e+00	2.711936e-01	1.280613e-02	1.280613e-02
+6.900000e+00	8.100000e+00	1.358663e-01	8.540671e-03	8.540671e-03
+8.100000e+00	9.300000e+00	1.227530e-02	2.136335e-03	2.136335e-03
+9.300000e+00	1.050000e+01	5.859078e-03	2.317843e-03	2.317843e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/numberlightjets
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/numberlightjets
+ScaledBy=3.98815264366321996e-03
+Title=4t
+# xlow	 xhigh	 val	 errminus	 errplus
+4.500000e+00	5.700000e+00	2.994692e-01	1.432252e-02	1.432252e-02
+5.700000e+00	6.900000e+00	2.532839e-01	1.754658e-02	1.754658e-02
+6.900000e+00	8.100000e+00	2.239788e-01	1.819276e-02	1.819276e-02
+8.100000e+00	9.300000e+00	4.000726e-02	9.338741e-03	9.338741e-03
+9.300000e+00	1.050000e+01	9.006942e-03	5.573121e-03	5.573121e-03
+# END HISTO1D
+

@@ -1,0 +1,45 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=8
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/pull_21_s3
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/pull_21_s3 //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/pull_21_s3
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/pull_21_s3 //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/pull_21_s3
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=2.5
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/pull_21_s3
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_9jets_colour_select.yoda/MC_ColourReconstruction_select/pull_21_s3
+ScaledBy=1.54262631289760728e-07
+Title=tt+jets
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.442453e+00	2.192398e-02	2.192398e-02
+2.000000e-01	4.000000e-01	1.390290e+00	2.147608e-02	2.147608e-02
+4.000000e-01	6.000000e-01	8.559630e-01	1.687483e-02	1.687483e-02
+6.000000e-01	8.000000e-01	6.614255e-01	1.496992e-02	1.496992e-02
+8.000000e-01	1.000000e+00	6.498680e-01	1.462832e-02	1.462832e-02
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/pull_21_s3
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_tttt_colour_select.yoda/MC_ColourReconstruction_select/pull_21_s3
+ScaledBy=3.25270632779068897e-04
+Title=4t
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.434145e+00	3.045650e-02	3.045650e-02
+2.000000e-01	4.000000e-01	1.428462e+00	2.981041e-02	2.981041e-02
+4.000000e-01	6.000000e-01	8.630405e-01	2.392507e-02	2.392507e-02
+6.000000e-01	8.000000e-01	6.681340e-01	2.186988e-02	2.186988e-02
+8.000000e-01	1.000000e+00	6.062190e-01	2.112798e-02	2.112798e-02
+# END HISTO1D
+
