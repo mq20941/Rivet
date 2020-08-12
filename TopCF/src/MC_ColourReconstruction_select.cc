@@ -226,6 +226,8 @@ namespace Rivet {
         }
       }
 
+      //std::cout
+
       for (size_t i = 0; i < ccjet1index.size(); ++i) {
         size_t j = ccjet2index[i];
         size_t k = ccjet2index[j];
@@ -246,6 +248,10 @@ namespace Rivet {
       }
       h_numberccjetpairs_s1->fill(numberccjetpairs_s1);
       h_numberccjetpairs_s1_wcands->fill(numberccjetpairs_s1_wcands);
+
+      //if (numberccjetpairs_s1 < 2) vetoEvent;
+
+
 
       //PULL ANGLE SELECTION 2 (tight):
       //Reconstructing W from light jets with colour connection information via pull angle 

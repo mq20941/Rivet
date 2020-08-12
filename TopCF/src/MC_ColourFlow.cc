@@ -83,6 +83,9 @@ namespace Rivet {
       book(h_pull_both_all_veryhighpT, "pull_both_all_veryhighpT", 6, 0, 1);
       book(h_bpullmagnitudej1_all, "bpullmagnitudej1_all", 5, 0, 0.01);
       book(h_leading_w_b_pull_all, "leading_w_b_pull_all", 5, 0, 1);
+      book(h_pull_12_w, "pull_12_w", 5, 0, 1);
+      book(h_pull_12_lowpT_w, "pull_12_lowpT_w", 5, 0, 1);
+      book(h_pull_12_highpT_w, "pull_12_highpT_w", 5, 0, 1);
       
       //book profiles
       book(p_paraproj_asymm, "paraproj_asymm", 3, 0, 0.01);
@@ -125,19 +128,9 @@ namespace Rivet {
       book(p_bparaproj_asymm_onebin_jetpTbins, "bparaproj_asymm_onebin_jetpTbins", 5, 20, 140);
       book(p_bparaproj_asymm_onebin_M, "bparaproj_asymm_onebin_M", 1, 0, 0.01);
       book(p_bpull_12_21_cor, "bpull_12_21_cor", 6, 0, 1);
+      book(p_wjetpurity, "wjetpurity", 1, 0, 2);
+      book(p_wjetpurity_pTbins, "wjetpurity_pTbins", 2, 20, 100);
 
-      //book counters
-      book(c_Nevents, "c_Nevents");
-      book(c_pull_12_01, "c_pull_12_01");
-      book(c_pull_12_02, "c_pull_12_02");
-      book(c_pull_12_03, "c_pull_12_03");
-      book(c_pull_12_04, "c_pull_12_04");
-      book(c_pull_12_05, "c_pull_12_05");
-      book(c_bpull_12_01, "c_bpull_12_01");
-      book(c_bpull_12_02, "c_bpull_12_02");
-      book(c_bpull_12_03, "c_bpull_12_03");
-      book(c_bpull_12_04, "c_bpull_12_04");
-      book(c_bpull_12_05, "c_bpull_12_05");
     
     } 
 
@@ -232,6 +225,43 @@ namespace Rivet {
       }
 
       if ( bJets.size() < 2 || wJets.size() < 2 )  vetoEvent; // need 2 of each jet in an event for semileptonic ttbar 
+
+      Jets truewJets;
+      for(Jet j : wJets) {
+        bool w_tagged = false;
+        Particles& constituents = j.particles();
+        for (Particle p : constituents) {
+          w_tagged |= p.hasAncestor(24, false);
+          w_tagged |= p.hasAncestor(-24, false);
+        }
+        if (w_tagged) truewJets += j;
+      }
+      
+      if (truewJets.size() > 0) {
+        for (size_t i = 0; i < truewJets.size(); ++i) {
+          double purity = CalculateJetPurity(truewJets[i]);
+          p_wjetpurity->fill(1, purity);
+          p_wjetpurity_pTbins->fill(truewJets[i].pT(), purity);
+        }
+      }
+
+      if(truewJets.size() > 1) {
+        for(size_t i = 0; i < truewJets.size()-1; ++i) {
+          for(size_t j = i+1; j < truewJets.size(); ++j) {
+            double pull_12_w = CalculatePullAngle(truewJets[i], truewJets[j], 0);
+            h_pull_12_w->fill(pull_12_w/Rivet::PI);
+            if(truewJets[i].pT() < 60*GeV) {
+              double pull_12_lowpT_w = CalculatePullAngle(truewJets[i], truewJets[j], 0);
+              h_pull_12_lowpT_w->fill(pull_12_lowpT_w/Rivet::PI);
+            }
+            if(truewJets[i].pT() > 60*GeV) {
+              double pull_12_highpT_w = CalculatePullAngle(truewJets[i], truewJets[j], 0);
+              h_pull_12_highpT_w->fill(pull_12_highpT_w/Rivet::PI);
+            }
+          }
+        }
+      }
+
      
       // Construct the hadronically decaying W momentum 4-vector from pairs of
       // non-b-tagged jets. The pair(s) within 20GeV of W mass is used. 
@@ -240,7 +270,7 @@ namespace Rivet {
          double Wjetsinvariantmass = fabs(CalculateInvariantMass(wJets[i], wJets[j]));
          
          if (Wjetsinvariantmass > 60.4*GeV && Wjetsinvariantmass < 100.4*GeV) {
-
+           
            double pull_angle_12_all = fabs(CalculatePullAngle(wJets[i], wJets[j], 0)); 
            h_pull_12_all->fill(pull_angle_12_all / Rivet::PI);
            double pull_angle_21_all = fabs(CalculatePullAngle(wJets[j], wJets[i], 0));
@@ -343,28 +373,9 @@ namespace Rivet {
 
            h_wJet1_pT->fill(wJets[i].pT());
            h_wJet2_pT->fill(wJets[j].pT());
+         }
 
-           if((pull_angle_12_all/Rivet::PI) < 0.1){
-             c_pull_12_01->fill();
-           }
 
-           if((pull_angle_12_all/Rivet::PI) < 0.2){
-             c_pull_12_02->fill();
-           }
-
-           if((pull_angle_12_all/Rivet::PI) < 0.3){
-             c_pull_12_03->fill();
-           }
-
-           if((pull_angle_12_all/Rivet::PI) < 0.4){
-             c_pull_12_04->fill();
-           }
-
-           if((pull_angle_12_all/Rivet::PI) < 0.5){
-             c_pull_12_05->fill();
-           }
-
-           }  
        
         }
       }
@@ -402,29 +413,6 @@ namespace Rivet {
 
      double leading_w_b_pull_all = CalculatePullAngle(wJets[0], bJets[0], 0);
      h_leading_w_b_pull_all->fill(leading_w_b_pull_all / Rivet::PI);
-
-     if((bpull_angle_12_all/Rivet::PI) < 0.1){
-       c_bpull_12_01->fill();
-     }
-
-     if((bpull_angle_12_all/Rivet::PI) < 0.2){
-       c_bpull_12_02->fill();
-     }
-
-     if((bpull_angle_12_all/Rivet::PI) < 0.3){
-       c_bpull_12_03->fill();
-     }
-
-     if((bpull_angle_12_all/Rivet::PI) < 0.4){
-       c_bpull_12_04->fill();
-     }
-
-     if((bpull_angle_12_all/Rivet::PI) < 0.5){
-       c_bpull_12_05->fill();
-     }
-
-     c_Nevents->fill();
-
 
 
     }//end of per-event analysis 
@@ -533,6 +521,23 @@ namespace Rivet {
      
      return totalmom.mass();
    }
+
+   double CalculateJetPurity(Jet& jet) {
+     bool w_tagged;
+     double Npure = 0;
+     double Nimpure = 0;
+     Particles& constituents = jet.particles();
+
+     for (Particle p : constituents) {
+       w_tagged = false;
+       w_tagged |= p.hasAncestor(24, false);
+       w_tagged |= p.hasAncestor(-24, false);
+       if (w_tagged) Npure += 1;
+       if (!w_tagged) Nimpure += 1;
+      }
+
+     return Npure/(Npure+Nimpure);
+   }
  
     // Void finalize() is called after a run is finished. 
     // Here the analysis class should do whatever manipulations are necessary on the histograms.
@@ -560,6 +565,9 @@ namespace Rivet {
       normalize(h_pull_both_all_veryhighpT);
       normalize(h_bpullmagnitudej1_all);
       normalize(h_leading_w_b_pull_all);
+      normalize(h_pull_12_w);
+      normalize(h_pull_12_lowpT_w);
+      normalize(h_pull_12_highpT_w);
 
     }
 
@@ -608,6 +616,8 @@ namespace Rivet {
     Profile1DPtr p_pull_angle_paraproj_asymm_cor_binone;
     Profile1DPtr p_paraproj_asymm_both_onebin;
     Profile1DPtr p_bpull_12_21_cor;
+    Profile1DPtr p_wjetpurity;
+    Profile1DPtr p_wjetpurity_pTbins;
 
     Histo1DPtr h_pull_12_all;
     Histo1DPtr h_pull_21_all;
@@ -632,18 +642,10 @@ namespace Rivet {
     Histo1DPtr h_pull_both_all_veryhighpT;
     Histo1DPtr h_bpullmagnitudej1_all;
     Histo1DPtr h_leading_w_b_pull_all;
+    Histo1DPtr h_pull_12_w;
+    Histo1DPtr h_pull_12_lowpT_w;
+    Histo1DPtr h_pull_12_highpT_w;
 
-    CounterPtr c_Nevents;
-    CounterPtr c_pull_12_01;
-    CounterPtr c_pull_12_02;
-    CounterPtr c_pull_12_03;
-    CounterPtr c_pull_12_04;
-    CounterPtr c_pull_12_05;
-    CounterPtr c_bpull_12_01;
-    CounterPtr c_bpull_12_02;
-    CounterPtr c_bpull_12_03;
-    CounterPtr c_bpull_12_04;
-    CounterPtr c_bpull_12_05;
   };
 
 

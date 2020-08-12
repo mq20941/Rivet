@@ -51,5 +51,5 @@ process.rivetAnalyzer.CrossSection    = 831.76 # NNLO (arXiv:1303.6254)
 process.p = cms.Path(process.mergedGenParticles*process.generator*process.rivetAnalyzer) # specify modules to execute in order given
 
 process.source.fileNames = [
-'file:/hdfs/user/ec6821/Jonah/inputFiles/Herwig7/002D85B6-F78F-1442-BB71-5AF71962C986.root',
+'file:/hdfs/user/ec6821/Jonah/inputFiles/Herwig7/09F8AF4B-A483-1F4F-90EF-3DC1F98155A3.root',
 ]

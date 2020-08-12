@@ -20,6 +20,7 @@ for i in range(0,max):
     htype = h.annotation("Type")
     if "Histo1D" in htype: 
         if hist in hpath:
-            print h.xMean() 
             print hpath
+            print h.xMean() 
+            
 

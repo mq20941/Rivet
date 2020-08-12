@@ -39,5 +39,5 @@ process.rivetAnalyzer.CrossSection    = 831.76 # NNLO (arXiv:1303.6254)
 process.p = cms.Path(process.rivetAnalyzer)
 
 process.source.fileNames = [
-'file:/hdfs/user/ec6821/Jonah/inputFiles/Herwig7/002D85B6-F78F-1442-BB71-5AF71962C986.root',
+'file:/hdfs/user/ec6821/Jonah/inputFiles/Herwig7/0C9A191E-16C3-B64F-9129-FE9FAEF5D287.root',
 ]

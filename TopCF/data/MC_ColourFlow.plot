@@ -447,6 +447,40 @@ XLabel=$\phi(j^w_1, j^w_2) / \pi$ , $\phi(j^w_2, j^w_1) / \pi$
 YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^w_1,j^w_2)}$
 # END PLOT
 
+# BEGIN PLOT /MC_ColourFlow/wjetpurity
+Title=Fractional purity of true $W$-jets
+YMax=1.0
+YMin=0.0
+YLabel=Purity
+# END PLOT
+
+# BEGIN PLOT /MC_ColourFlow/wjetpurity_pTbins
+Title=Fractional purity of true $W$-jets, in jet pT bins
+YMax=1.0
+YMin=0.0
+YLabel=Purity
+XLabel=$p_{\bot}$
+# END PLOT
+
+# BEGIN PLOT /MC_ColourFlow/pull_12_lowpT_w
+Title=Pull angle 1,2 between true $W$-jets, all constituents, jetpT $<$ 60 GeV
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
+# END PLOT
+
+# BEGIN PLOT /MC_ColourFlow/pull_12_highpT_w
+Title=Pull angle 1,2 between true $W$-jets, all constituents, jetpT $>$ 60 GeV
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
+# END PLOT
+
+# BEGIN PLOT /MC_ColourFlow/pull_12_w
+Title=Pull angle 1,2 between true $W$-jets, all constituents
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
+# END PLOT
+
+
 ## paraproj_asymm_both_onebin
 ## bpullmagnitudej1_all
 ## bpull_12_21_cor
