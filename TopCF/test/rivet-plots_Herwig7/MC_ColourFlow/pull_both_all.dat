@@ -1,0 +1,36 @@
+# BEGIN PLOT
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_both_all
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_both_all
+Title=Pull angle (1,2 and 2,1) between $W$-jets, all constituents
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+LogY=0
+RatioPlotYMax=1.10
+RatioPlotYLabel=Ratio
+YMin=0.8
+RatioPlotYMin=0.90
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+XLabel=$\phi(j^W_1, j^W_2) / \pi + \phi(j^W_2, j^W_1) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^w_1,j^w_2)}$
+Legend=1
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_both_all
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_both_all
+ScaledBy=4.84458062281085825e-06
+Title=Herwig7
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	1.666667e-01	1.118952e+00	5.955781e-03	5.955781e-03
+1.666667e-01	3.333333e-01	1.051158e+00	5.778377e-03	5.778377e-03
+3.333333e-01	5.000000e-01	9.821686e-01	5.574535e-03	5.574535e-03
+5.000000e-01	6.666667e-01	9.655342e-01	5.523460e-03	5.523460e-03
+6.666667e-01	8.333333e-01	9.462352e-01	5.470077e-03	5.470077e-03
+8.333333e-01	1.000000e+00	9.359518e-01	5.446326e-03	5.446326e-03
+# END HISTO1D
+

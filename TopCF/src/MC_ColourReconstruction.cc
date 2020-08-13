@@ -68,7 +68,8 @@ namespace Rivet {
       book(h_nonwjets_pull_12, "nonwjets_pull_12", 5, 0, 1);
       book(h_wjets_pull_12, "wjets_pull_12", 5, 0, 1);
       book(h_numberojets, "numberojets", 8, -0.5, 7.5);
-
+      book(h_NWpairs, "NWpairs", 5, -0.5, 4.5);
+      
     } 
 
     /// Perform the per-event analysis
@@ -175,16 +176,27 @@ namespace Rivet {
           w_tagged |= p.hasAncestor(-24, false);
         }
         if (w_tagged) {
-          double purity = CalculateJetPurity(j);
-          if (purity > 0.5) wJets += j;
+          double purity = CalculateWJetPurity(j);
+          if (purity > 0.1) wJets += j;
         }
         else {
           oJets += j;
         }
       }
+
+      int NWpairs = 0;
+      if (wJets.size() > 1) {
+        for (size_t i = 0; i < wJets.size()-1; ++i) {
+          for (size_t j = i + 1; j < wJets.size(); ++j) {
+            bool same = FromSameW(wJets[i], wJets[j]);
+            if (same) NWpairs += 1;
+          }
+        }
+      }
       
       h_numberwjets->fill(wJets.size());
       h_numberojets->fill(oJets.size());
+      h_NWpairs->fill(NWpairs);
 
       if (wJets.size() > 1) {
         double wjetsinvariantmass = fabs(CalculateInvariantMass(wJets[0], wJets[1]));
@@ -202,7 +214,7 @@ namespace Rivet {
           }
         }
       }
-
+ 
 
     }//end of per-event analysis 
 
@@ -248,7 +260,7 @@ namespace Rivet {
      return totalmom.mass();
    }
 
-   double CalculateJetPurity(Jet& jet) {
+   double CalculateWJetPurity(Jet& jet) {
      bool w_tagged;
      double Npure = 0;
      double Nimpure = 0;
@@ -265,6 +277,30 @@ namespace Rivet {
      return Npure/(Npure+Nimpure);
    }
 
+   bool FromSameW(Jet& jet1, Jet& jet2) {
+     bool same = false;
+
+     Particles W_j1;
+     Particles& constituents_j1 = jet1.particles();
+     for (Particle p_j1 : constituents_j1) {
+       Particles ancestors_j1 = p_j1.ancestors(Cuts::OPEN, false);
+       for (Particle a_j1 : ancestors_j1) {
+         if (a_j1.abspid() == 24) W_j1 += a_j1;
+       }
+     }
+     Particles W_j2;
+     Particles& constituents_j2 = jet2.particles();
+     for (Particle p_j2 : constituents_j2) {
+       Particles ancestors_j2 = p_j2.ancestors(Cuts::OPEN, false);
+       for (Particle a_j2 : ancestors_j2) {
+         if (a_j2.abspid() == 24) W_j2 += a_j2;
+       }
+     }
+
+     if (W_j1[0].isSame(W_j2[0])) same = true;
+     return same;
+    }
+
     // Void finalize() is called after a run is finished. 
     // Here the analysis class should do whatever manipulations are necessary on the histograms.
     void finalize() {
@@ -276,6 +312,7 @@ namespace Rivet {
       normalize(h_nonwjets_pull_12);
       normalize(h_wjets_pull_12);
       normalize(h_numberojets);
+      normalize(h_NWpairs);
 
     }
 
@@ -291,7 +328,7 @@ namespace Rivet {
     Histo1DPtr h_nonwjets_pull_12;
     Histo1DPtr h_wjets_pull_12;
     Histo1DPtr h_numberojets;
-
+    Histo1DPtr h_NWpairs;
 
   };
 

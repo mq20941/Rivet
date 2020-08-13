@@ -130,6 +130,9 @@ namespace Rivet {
       book(p_bpull_12_21_cor, "bpull_12_21_cor", 6, 0, 1);
       book(p_wjetpurity, "wjetpurity", 1, 0, 2);
       book(p_wjetpurity_pTbins, "wjetpurity_pTbins", 2, 20, 100);
+      book(p_pull_angle_asymm_lowpT, "pull_angle_asymm_lowpT", 3, 0, 0.5);
+      book(p_pull_angle_asymm_highpT, "pull_angle_asymm_highpT", 3, 0, 0.5);
+      book(p_pull_angle_asymm_veryhighpT, "pull_angle_asymm_veryhighpT", 3, 0, 0.5);
 
     
     } 
@@ -351,6 +354,8 @@ namespace Rivet {
              
              h_pull_both_all_lowpT->fill(pull_angle_12_all / Rivet::PI);
              h_pull_both_all_lowpT->fill(pull_angle_21_all / Rivet::PI);
+
+             p_pull_angle_asymm_lowpT->fill((pull_angle_12_all_modhalfpi / Rivet::PI), double((pull_angle_12_all / Rivet::PI) < 0.5) - ((pull_angle_12_all / Rivet::PI) > 0.5)); 
            }
 
            if (wJets[i].pT() > 60*GeV){
@@ -360,6 +365,8 @@ namespace Rivet {
 
              h_pull_both_all_highpT->fill(pull_angle_12_all / Rivet::PI);
              h_pull_both_all_highpT->fill(pull_angle_21_all / Rivet::PI);
+
+             p_pull_angle_asymm_highpT->fill((pull_angle_12_all_modhalfpi / Rivet::PI), double((pull_angle_12_all / Rivet::PI) < 0.5) - ((pull_angle_12_all / Rivet::PI) > 0.5)); 
            }
 
            if (wJets[i].pT() > 80*GeV){
@@ -369,6 +376,8 @@ namespace Rivet {
 
              h_pull_both_all_veryhighpT->fill(pull_angle_12_all / Rivet::PI);
              h_pull_both_all_veryhighpT->fill(pull_angle_21_all / Rivet::PI);
+
+             p_pull_angle_asymm_veryhighpT->fill((pull_angle_12_all_modhalfpi / Rivet::PI), double((pull_angle_12_all / Rivet::PI) < 0.5) - ((pull_angle_12_all / Rivet::PI) > 0.5)); 
            }
 
            h_wJet1_pT->fill(wJets[i].pT());
@@ -618,6 +627,10 @@ namespace Rivet {
     Profile1DPtr p_bpull_12_21_cor;
     Profile1DPtr p_wjetpurity;
     Profile1DPtr p_wjetpurity_pTbins;
+    Profile1DPtr p_pull_angle_asymm_lowpT;
+    Profile1DPtr p_pull_angle_asymm_highpT;
+    Profile1DPtr p_pull_angle_asymm_veryhighpT;
+
 
     Histo1DPtr h_pull_12_all;
     Histo1DPtr h_pull_21_all;

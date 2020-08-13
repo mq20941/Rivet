@@ -1,0 +1,33 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+Title=Parallel asymmetry of pull vector of $W$-jet 2 in jet 2 pT bins
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+LogY=0
+RatioPlotYMax=1.2
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/paraproj_asymm_j2_onebin_jetpTbins
+XLabel=$\ensuremath{p_\perp}\xspace$ (GeV)
+YLabel=$A_{\parallel}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/paraproj_asymm_j2_onebin_jetpTbins
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.8
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/paraproj_asymm_j2_onebin_jetpTbins
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/paraproj_asymm_j2_onebin_jetpTbins
+Title=Herwig7
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.400000e+01	2.167050e-02	3.583832e-03	3.583832e-03
+4.400000e+01	6.800000e+01	1.032429e-01	8.771985e-03	8.771985e-03
+6.800000e+01	9.200000e+01	1.739673e-01	1.815981e-02	1.815981e-02
+9.200000e+01	1.160000e+02	8.864965e-02	3.450207e-02	3.450207e-02
+1.160000e+02	1.400000e+02	8.971472e-02	6.780917e-02	6.780917e-02
+# END HISTO1D
+

@@ -1,0 +1,39 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+Title=Count of pull angle $1,2 < 1/3$ $\pi$ between $W$-jets in jet 1 pT bins
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+LogY=0
+RatioPlotYMax=1.05
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_angle_12_jetpTbins
+XLabel=$\ensuremath{p_\perp}\xspace$ (GeV)
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_angle_12_jetpTbins
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.95
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_angle_12_jetpTbins
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_angle_12_jetpTbins
+ScaledBy=2.62743479300890631e-05
+Title=Herwig7
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	3.000000e+01	4.565937e-03	1.144121e-04	1.144121e-04
+3.000000e+01	4.000000e+01	1.262398e-02	1.892253e-04	1.892253e-04
+4.000000e+01	5.000000e+01	1.727181e-02	2.225596e-04	2.225596e-04
+5.000000e+01	6.000000e+01	1.483745e-02	2.064764e-04	2.064764e-04
+6.000000e+01	7.000000e+01	1.175538e-02	1.837302e-04	1.837302e-04
+7.000000e+01	8.000000e+01	8.862214e-03	1.596797e-04	1.596797e-04
+8.000000e+01	9.000000e+01	6.893127e-03	1.407086e-04	1.407086e-04
+9.000000e+01	1.000000e+02	5.160161e-03	1.204080e-04	1.204080e-04
+1.000000e+02	1.100000e+02	3.850224e-03	1.060679e-04	1.060679e-04
+1.100000e+02	1.200000e+02	2.749174e-03	8.782443e-05	8.782443e-05
+# END HISTO1D
+

@@ -1,0 +1,52 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pull_12_lowpT_w
+Title=Pull angle 1,2 between true $W$-jets, all constituents, jetpT $<$ 60 GeV
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pull_12_lowpT_w //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_12_lowpT_w
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pull_12_lowpT_w //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_12_lowpT_w
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pull_12_lowpT_w
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/pull_12_lowpT_w
+ScaledBy=2.45245643675954705e-08
+Title=CP5-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.198405e+00	6.690488e-03	6.690488e-03
+2.000000e-01	4.000000e-01	1.059287e+00	6.291772e-03	6.291772e-03
+4.000000e-01	6.000000e-01	9.617660e-01	5.994049e-03	5.994049e-03
+6.000000e-01	8.000000e-01	8.999095e-01	5.800392e-03	5.800392e-03
+8.000000e-01	1.000000e+00	8.806320e-01	5.737974e-03	5.737974e-03
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_12_lowpT_w
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pull_12_lowpT_w
+ScaledBy=2.15813340783435368e-05
+Title=Herwig7
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-01	1.168885e+00	1.172674e-02	1.172674e-02
+2.000000e-01	4.000000e-01	1.045395e+00	1.107879e-02	1.107879e-02
+4.000000e-01	6.000000e-01	9.578500e-01	1.065058e-02	1.065058e-02
+6.000000e-01	8.000000e-01	9.167725e-01	1.037983e-02	1.037983e-02
+8.000000e-01	1.000000e+00	9.110965e-01	1.038596e-02	1.038596e-02
+# END HISTO1D
+

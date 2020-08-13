@@ -50,3 +50,19 @@ YMax=2
 XLabel=$\phi(j^W_1, j^W_2) / \pi$
 YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
 # END PLOT
+
+# BEGIN PLOT /MC_ColourReconstruction/ROC_s1
+Title=ROC curve for s1 
+XLabel=TP efficiency
+YLabel=PT efficiency
+XMax=1
+YMax=0.15
+# END PLOT
+
+# BEGIN PLOT /MC_ColourReconstruction/ROC_s2
+Title=ROC curve for s2
+XLabel=TP efficiency
+YLabel=PT efficiency
+XMax=1
+YMax=0.15
+# END PLOT

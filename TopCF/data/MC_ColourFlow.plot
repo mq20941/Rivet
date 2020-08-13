@@ -480,6 +480,29 @@ XLabel=$\phi(j^W_1, j^W_2) / \pi$
 YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}\phi(j^W_1,j^W_2)}$
 # END PLOT
 
+# BEGIN PLOT /MC_ColourFlow/pull_angle_asymm_lowpT
+Title=Asymmetry of pull angle 1,2 between $W$-jets, jetpT $<$ 60 GeV
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$A_{\phi}$
+RatioPlotYMin=0.90
+RatioPlotYMax=1.10
+# END PLOT
+
+# BEGIN PLOT /MC_ColourFlow/pull_angle_asymm_highpT
+Title=Asymmetry of pull angle 1,2 between $W$-jets, jetpT $>$ 60 GeV
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$A_{\phi}$
+RatioPlotYMin=0.90
+RatioPlotYMax=1.10
+# END PLOT
+
+# BEGIN PLOT /MC_ColourFlow/pull_angle_asymm_veryhighpT
+Title=Asymmetry of pull angle 1,2 between $W$-jets, jetpT $>$ 80 GeV
+XLabel=$\phi(j^W_1, j^W_2) / \pi$
+YLabel=$A_{\phi}$
+RatioPlotYMin=0.90
+RatioPlotYMax=1.10
+# END PLOT
 
 ## paraproj_asymm_both_onebin
 ## bpullmagnitudej1_all

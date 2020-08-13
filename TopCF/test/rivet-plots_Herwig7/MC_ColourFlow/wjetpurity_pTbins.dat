@@ -1,0 +1,32 @@
+# BEGIN PLOT
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/wjetpurity_pTbins
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/wjetpurity_pTbins
+Title=Fractional purity of true $W$-jets, in jet pT bins
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+YMin=0.0
+RatioPlotYMin=0.6
+XTwosidedTicks=1
+YTwosidedTicks=1
+YMax=1.0
+RightMargin=3
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+XLabel=$p_{\bot}$
+YLabel=Purity
+Legend=1
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/wjetpurity_pTbins
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/wjetpurity_pTbins
+Title=Herwig7
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	6.000000e+01	6.719771e-01	9.400719e-04	9.400719e-04
+6.000000e+01	1.000000e+02	7.392836e-01	1.439633e-03	1.439633e-03
+# END HISTO1D
+

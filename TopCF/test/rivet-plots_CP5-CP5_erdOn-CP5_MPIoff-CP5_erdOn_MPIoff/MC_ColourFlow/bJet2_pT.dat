@@ -1,0 +1,87 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+RatioPlotReference=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_small.yoda/MC_ColourFlow/bJet2_pT
+Title=pT of B-jet 2
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+RatioPlot=1
+LogY=0
+RatioPlotYMax=1.4
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_small.yoda/MC_ColourFlow/bJet2_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/bJet2_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/bJet2_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/bJet2_pT
+XLabel=$\ensuremath{p_\perp}\xspace$ (GeV)
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_small.yoda/MC_ColourFlow/bJet2_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/bJet2_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/bJet2_pT //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/bJet2_pT
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.6
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_small.yoda/MC_ColourFlow/bJet2_pT
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_small.yoda/MC_ColourFlow/bJet2_pT
+ScaledBy=2.33635229003295009e-08
+Title=CP5
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.000000e+01	1.675622e-02	8.189167e-05	8.189167e-05
+4.000000e+01	6.000000e+01	1.568864e-02	7.905440e-05	7.905440e-05
+6.000000e+01	8.000000e+01	8.706270e-03	5.908232e-05	5.908232e-05
+8.000000e+01	1.000000e+02	4.364734e-03	4.208446e-05	4.208446e-05
+1.000000e+02	1.200000e+02	2.082058e-03	2.911348e-05	2.911348e-05
+1.200000e+02	1.400000e+02	1.082355e-03	2.094476e-05	2.094476e-05
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/bJet2_pT
+ErrorBars=1
+LineColor=blue
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn.yoda/MC_ColourFlow/bJet2_pT
+ScaledBy=1.10273249180105189e-08
+Title=CP5-erdOn
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.000000e+01	1.684101e-02	5.322786e-05	5.322786e-05
+4.000000e+01	6.000000e+01	1.552733e-02	5.108520e-05	5.108520e-05
+6.000000e+01	8.000000e+01	8.797070e-03	3.846974e-05	3.846974e-05
+8.000000e+01	1.000000e+02	4.279887e-03	2.686529e-05	2.686529e-05
+1.000000e+02	1.200000e+02	2.148499e-03	1.907042e-05	1.907042e-05
+1.200000e+02	1.400000e+02	1.093388e-03	1.361014e-05	1.361014e-05
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/bJet2_pT
+ErrorBars=1
+LineColor=green
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_MPIoff.yoda/MC_ColourFlow/bJet2_pT
+ScaledBy=1.25984089196278819e-08
+Title=CP5-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.000000e+01	1.762485e-02	5.819573e-05	5.819573e-05
+4.000000e+01	6.000000e+01	1.539513e-02	5.438292e-05	5.438292e-05
+6.000000e+01	8.000000e+01	8.497695e-03	4.042244e-05	4.042244e-05
+8.000000e+01	1.000000e+02	4.113317e-03	2.814826e-05	2.814826e-05
+1.000000e+02	1.200000e+02	2.040122e-03	1.985922e-05	1.985922e-05
+1.200000e+02	1.400000e+02	1.048333e-03	1.424906e-05	1.424906e-05
+# END HISTO1D
+
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/bJet2_pT
+ErrorBars=1
+LineColor=orange
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_CP5_erdOn_MPIoff.yoda/MC_ColourFlow/bJet2_pT
+ScaledBy=1.26003742288080410e-08
+Title=CP5-erdOn-MPIoff
+# xlow	 xhigh	 val	 errminus	 errplus
+2.000000e+01	4.000000e+01	1.755745e-02	5.808793e-05	5.808793e-05
+4.000000e+01	6.000000e+01	1.551789e-02	5.459263e-05	5.459263e-05
+6.000000e+01	8.000000e+01	8.405910e-03	4.020940e-05	4.020940e-05
+8.000000e+01	1.000000e+02	4.121790e-03	2.819089e-05	2.819089e-05
+1.000000e+02	1.200000e+02	2.070047e-03	2.000604e-05	2.000604e-05
+1.200000e+02	1.400000e+02	1.055349e-03	1.432251e-05	1.432251e-05
+# END HISTO1D
+

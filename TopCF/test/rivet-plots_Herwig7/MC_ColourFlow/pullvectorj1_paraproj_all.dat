@@ -1,0 +1,34 @@
+# BEGIN PLOT
+XTwosidedTicks=1
+YTwosidedTicks=1
+RightMargin=3
+Title=Magnitude of parallel projection of pull vector of highest p_t $W$-jet
+Variations=fsr_murfac=0.5,fsr_murfac=2.0
+LogY=0
+RatioPlotYMax=1.05
+RatioPlotYLabel=Ratio
+LegendOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+XLabel=$|t_{\parallel}|$
+YLabel=$\dfrac{1}{\sigma}\dfrac{\text{d}\sigma}{\text{d}|t_{\parallel}|}$
+DrawOnly=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+BandComponentEnv=fsr_murfac=0.5,fsr_murfac=2.0
+Legend=1
+RatioPlotYMin=0.95
+LeftMargin=1.8
+# END PLOT
+
+# BEGIN HISTO1D //storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+ErrorBars=1
+LineColor=red
+LineStyle=solid
+Path=//storage/mq20941/CMSSW_11_1_0_pre8/src/Rivet/TopCF/test/MC_Herwig7.yoda/MC_ColourFlow/pullvectorj1_paraproj_all
+ScaledBy=9.68916124562171651e-06
+Title=Herwig7
+# xlow	 xhigh	 val	 errminus	 errplus
+0.000000e+00	2.000000e-03	2.943680e+02	1.245952e+00	1.245952e+00
+2.000000e-03	4.000000e-03	1.202932e+02	7.970613e-01	7.970613e-01
+4.000000e-03	6.000000e-03	5.140290e+01	5.215249e-01	5.215249e-01
+6.000000e-03	8.000000e-03	2.191484e+01	3.413021e-01	3.413021e-01
+8.000000e-03	1.000000e-02	8.350110e+00	2.094056e-01	2.094056e-01
+# END HISTO1D
+
