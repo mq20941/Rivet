@@ -64,7 +64,10 @@ namespace Rivet {
       book(h_numberbjets, "numberbjets", 4, 3.5, 7.5);
       book(h_numberwjets, "numberwjets", 11, -0.5, 10.5);
       book(h_numberojets, "numberojets", 11, -0.5, 10.5);
-      book(h_wjetspT, "wjetspT", 6, 20, 140);
+      book(h_wjetspT, "wjetspT", 7, 20, 160);
+
+      book(h_wcandinvariantmass, "wcandinvariantmass", 30, 40.5, 120);
+      book(h_numberwjetpairs, "numberwjetpairs", 6, -0.5, 5.5);
 
     } 
 
@@ -122,7 +125,7 @@ namespace Rivet {
         for (const DressedLepton muon : muons) {
           double d_theta = fabs(muon.theta() - electron.theta());
           double d_phi = deltaPhi(muon.phi(), electron.phi());
-          if (d_theta < 0.005 && d_phi < 0.005)  vetoEvent; //
+          if (d_theta < 0.005 && d_phi < 0.005)  vetoEvent; 
         }
       }
 
@@ -188,7 +191,7 @@ namespace Rivet {
         h_wjetspT->fill(wJets[i].pT());
       }
 
-      Jets Wcands;
+      Jets W1cands, W2cands, W3cands, W4cands, W5cands, W6cands;
       set<size_t> doublecount;
 
       double W1candmass = 40.4;
@@ -204,10 +207,12 @@ namespace Rivet {
           }
         }
       }
+
+      h_wcandinvariantmass->fill(W1candmass);
       
       if (W1index1 != 100 && W1index2 != 100) {
-        Wcands += lJets[W1index1];
-        Wcands += lJets[W1index2];
+        W1cands += lJets[W1index1];
+        W1cands += lJets[W1index2];
         doublecount.insert(W1index1);
         doublecount.insert(W1index2);
       }
@@ -225,10 +230,12 @@ namespace Rivet {
           }
         }
       }
+
+      h_wcandinvariantmass->fill(W2candmass);
       
       if (W2index1 != 100 && W2index2 != 100) {
-        Wcands += lJets[W2index1];
-        Wcands += lJets[W2index2];
+        W2cands += lJets[W2index1];
+        W2cands += lJets[W2index2];
         doublecount.insert(W2index1);
         doublecount.insert(W2index2);
       }
@@ -246,10 +253,12 @@ namespace Rivet {
           }
         }
       }
+
+      h_wcandinvariantmass->fill(W3candmass);
       
       if (W3index1 != 100 && W3index2 != 100) {
-        Wcands += lJets[W3index1];
-        Wcands += lJets[W3index2];
+        W3cands += lJets[W3index1];
+        W3cands += lJets[W3index2];
         doublecount.insert(W3index1);
         doublecount.insert(W3index2);
       }
@@ -267,10 +276,12 @@ namespace Rivet {
           }
         }
       }
+
+      h_wcandinvariantmass->fill(W4candmass);
       
       if (W4index1 != 100 && W4index2 != 100) {
-        Wcands += lJets[W4index1];
-        Wcands += lJets[W4index2];
+        W4cands += lJets[W4index1];
+        W4cands += lJets[W4index2];
         doublecount.insert(W4index1);
         doublecount.insert(W4index2);
       }
@@ -288,13 +299,135 @@ namespace Rivet {
           }
         }
       }
+
+      h_wcandinvariantmass->fill(W5candmass);
       
       if (W5index1 != 100 && W5index2 != 100) {
-        Wcands += lJets[W5index1];
-        Wcands += lJets[W5index2];
+        W5cands += lJets[W5index1];
+        W5cands += lJets[W5index2];
         doublecount.insert(W5index1);
         doublecount.insert(W5index2);
       }
+
+      double W6candmass = 40.4;
+      size_t W6index1 = 100;
+      size_t W6index2 = 100;
+      for (size_t i = 0; i < lJets.size()-1; ++i) {
+        for (size_t j = 0; j < lJets.size(); ++j) {
+          double dijetinvariantmass = CalculateInvariantMass(lJets[i], lJets[j]);
+          if (fabs(dijetinvariantmass - 80.4) < fabs(W6candmass - 80.4) && !doublecount.count(i) && !doublecount.count(j)) {
+            W5candmass = dijetinvariantmass;
+            W6index1 = i;
+            W6index2 = j;
+          }
+        }
+      }
+      
+      h_wcandinvariantmass->fill(W6candmass);
+
+      if (W6index1 != 100 && W6index2 != 100) {
+        W6cands += lJets[W6index1];
+        W6cands += lJets[W6index2];
+        doublecount.insert(W6index1);
+        doublecount.insert(W6index2);
+      }
+      
+
+      int numberwjetpairs = 0;
+
+      if (W1cands.size() > 1) {
+        double pull_12 = CalculatePullAngle(W1cands[0], W1cands[1], 0);
+        double pull_21 = CalculatePullAngle(W1cands[1], W1cands[0], 0);
+        if (W1cands[0].pT() > 80*GeV && W1cands[1].pT() > 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.725 || (pull_21/Rivet::PI) < 0.725) {
+            numberwjetpairs += 1;
+          }
+        }
+        if (W1cands[0].pT() < 80*GeV || W1cands[1].pT() < 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.94 || (pull_21/Rivet::PI) < 0.94) {
+            numberwjetpairs += 1;
+          }
+        }
+      }
+
+      if (W2cands.size() > 1) {
+        double pull_12 = CalculatePullAngle(W2cands[0], W2cands[1], 0);
+        double pull_21 = CalculatePullAngle(W2cands[1], W2cands[0], 0);
+        if (W2cands[0].pT() > 80*GeV && W2cands[1].pT() > 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.725 || (pull_21/Rivet::PI) < 0.725) {
+            numberwjetpairs += 1;
+          }
+        }
+        if (W2cands[0].pT() < 80*GeV || W2cands[1].pT() < 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.94 || (pull_21/Rivet::PI) < 0.94) {
+            numberwjetpairs += 1;
+          }
+        }
+      }
+
+      if (W3cands.size() > 1) {
+        double pull_12 = CalculatePullAngle(W3cands[0], W3cands[1], 0);
+        double pull_21 = CalculatePullAngle(W3cands[1], W3cands[0], 0);
+        if (W3cands[0].pT() > 80*GeV && W3cands[1].pT() > 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.725 || (pull_21/Rivet::PI) < 0.725) {
+            numberwjetpairs += 1;
+          }
+        }
+        if (W3cands[0].pT() < 80*GeV || W3cands[1].pT() < 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.94 || (pull_21/Rivet::PI) < 0.94) {
+            numberwjetpairs += 1;
+          }
+        }
+      }
+
+      if (W4cands.size() > 1) {
+        double pull_12 = CalculatePullAngle(W4cands[0], W4cands[1], 0);
+        double pull_21 = CalculatePullAngle(W4cands[1], W4cands[0], 0);
+        if (W4cands[0].pT() > 80*GeV && W4cands[1].pT() > 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.725 || (pull_21/Rivet::PI) < 0.725) {
+            numberwjetpairs += 1;
+          }
+        }
+        if (W4cands[0].pT() < 80*GeV || W4cands[1].pT() < 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.94 || (pull_21/Rivet::PI) < 0.94) {
+            numberwjetpairs += 1;
+          }
+        }
+      }
+
+      if (W5cands.size() > 1) {
+        double pull_12 = CalculatePullAngle(W5cands[0], W5cands[1], 0);
+        double pull_21 = CalculatePullAngle(W5cands[1], W5cands[0], 0);
+        if (W5cands[0].pT() > 80*GeV && W5cands[1].pT() > 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.725 || (pull_21/Rivet::PI) < 0.725) { //signal efficiency 90%, 22% background removed
+            numberwjetpairs += 1;
+          }
+        }
+        if (W5cands[0].pT() < 80*GeV || W5cands[1].pT() < 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.94 || (pull_21/Rivet::PI) < 0.94) { //signal efficiency 90%, 15% background removed
+            numberwjetpairs += 1;
+          }
+        }
+      }
+
+      if (W6cands.size() > 1) {
+        double pull_12 = CalculatePullAngle(W6cands[0], W6cands[1], 0);
+        double pull_21 = CalculatePullAngle(W6cands[1], W6cands[0], 0);
+        if (W6cands[0].pT() > 80*GeV && W6cands[1].pT() > 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.725 || (pull_21/Rivet::PI) < 0.725) {
+            numberwjetpairs += 1;
+          }
+        }
+        if (W6cands[0].pT() < 80*GeV || W6cands[1].pT() < 80*GeV) {
+          if ((pull_12/Rivet::PI) < 0.94 || (pull_21/Rivet::PI) < 0.94) {
+            numberwjetpairs += 1;
+          }
+        }
+      }
+
+      h_numberwjetpairs->fill(numberwjetpairs);
+      int numberwjetcands = 2*numberwjetpairs;
+      h_numberwjetcands->fill(numberwjetcands);
       
 
       
@@ -368,6 +501,8 @@ namespace Rivet {
       normalize(h_numberbjets);
       normalize(h_numberojets);
       normalize(h_wjetspT);
+      normalize(h_wcandinvariantmass);
+      normalize(h_numberwjetpairs);
 
     }
 
@@ -381,6 +516,9 @@ namespace Rivet {
     Histo1DPtr h_numberbjets;
     Histo1DPtr h_numberojets;
     Histo1DPtr h_wjetspT;
+    
+    Histo1DPtr h_wcandinvariantmass;
+    Histo1DPtr h_numberwjetpairs;
 
   };
 

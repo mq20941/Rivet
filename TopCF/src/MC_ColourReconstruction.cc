@@ -70,6 +70,9 @@ namespace Rivet {
       book(h_numberojets, "numberojets", 8, -0.5, 7.5);
       book(h_NWpairs, "NWpairs", 5, -0.5, 4.5);
       
+      //book profiles
+      book(p_puritycut, "puritycut", 20, 0, 1);
+      
     } 
 
     /// Perform the per-event analysis
@@ -166,6 +169,24 @@ namespace Rivet {
       h_numberbjets->fill(bJets.size());
       
 
+      for (double k = 0; k<20; ++k) {
+        double cut = (k+1)/20;
+        double numberW = 0;
+        for(Jet j : lJets) {
+          bool w_tagged = false;
+          Particles& constituents = j.particles();
+          for (Particle p : constituents) {
+            w_tagged |= p.hasAncestor(24, false);
+            w_tagged |= p.hasAncestor(-24, false);
+          }
+          if (w_tagged) {
+            double purity = CalculateWJetPurity(j);
+            if (purity > cut) numberW += 1;
+          }
+        }
+        p_puritycut->fill(cut, numberW);
+      }
+
       //Find W jets
       Jets wJets, oJets;
       for(Jet j : lJets) {
@@ -177,12 +198,13 @@ namespace Rivet {
         }
         if (w_tagged) {
           double purity = CalculateWJetPurity(j);
-          if (purity > 0.1) wJets += j;
+          if (purity > 0.2) wJets += j;
         }
         else {
           oJets += j;
         }
       }
+
 
       int NWpairs = 0;
       if (wJets.size() > 1) {
@@ -298,6 +320,18 @@ namespace Rivet {
      }
 
      if (W_j1[0].isSame(W_j2[0])) same = true;
+     if (W_j1.size() > 1) {
+       same = false;
+       if (W_j1[0].isSame(W_j2[0]) && W_j1[1].isSame(W_j2[0])) same = true;
+     }
+     if (W_j2.size() > 1) {
+       same = false;
+       if (W_j1[0].isSame(W_j2[0]) && W_j1[0].isSame(W_j2[1])) same = true;
+     }
+     if (W_j1.size() > 1 && W_j2.size() > 1) {
+       same = false;
+       if (W_j1[0].isSame(W_j2[0]) && W_j1[0].isSame(W_j2[1]) && W_j1[1].isSame(W_j2[0]) && W_j1[1].isSame(W_j2[1])) same = true;
+     }
      return same;
     }
 
@@ -329,6 +363,8 @@ namespace Rivet {
     Histo1DPtr h_wjets_pull_12;
     Histo1DPtr h_numberojets;
     Histo1DPtr h_NWpairs;
+
+    Profile1DPtr p_puritycut;
 
   };
 

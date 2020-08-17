@@ -67,13 +67,9 @@ namespace Rivet {
       book(h_numberojets, "numberojets", 8, -0.5, 7.5);
 
       //book profiles
-      book(p_PT_s1, "PT_s1", 20, 0, 1);
-      book(p_TP_s1, "TP_s1", 20, 0, 1);
-      book(p_FP_s1, "FP_s1", 20, 0, 1);
-      book(p_PT_s2, "PT_s2", 20, 0, 1);
-      book(p_TP_s2, "TP_s2", 20, 0, 1);
-      book(p_FP_s2, "FP_s2", 20, 0, 1);
-
+      book(p_PT_s1, "PT_s1", 60, 0, 1);
+      book(p_TP_s1, "TP_s1", 60, 0, 1);
+      book(p_FP_s1, "FP_s1", 60, 0, 1);
     } 
 
     /// Perform the per-event analysis
@@ -214,9 +210,10 @@ namespace Rivet {
           if (lJets[i].pT() > 80*GeV && lJets[j].pT() > 80*GeV) {
             double pull_12 = CalculatePullAngle(lJets[i], lJets[j], 0);
             double pull_21 = CalculatePullAngle(lJets[j], lJets[i], 0);
+            double mass = CalculateInvariantMass(lJets[i], lJets[j]);
             for (double k = 0; k < Ncuts; ++k) {
               double cut = (k+1)/Ncuts;
-              if ((pull_12/Rivet::PI) < cut || (pull_21/Rivet::PI) < cut) {
+              if (((pull_12/Rivet::PI) < cut || (pull_21/Rivet::PI) < cut) && fabs(mass - 80.4) < 40) {
                 double wpurity_j1 = CalculateWJetPurity(lJets[i]);
                 double wpurity_j2 = CalculateWJetPurity(lJets[j]);
                 if (wpurity_j1 > 0.1 && wpurity_j2 > 0.1) {
@@ -250,12 +247,13 @@ namespace Rivet {
               if (same) {
                 double pull_12 = CalculatePullAngle(wJets[i], wJets[j], 0);
                 double pull_21 = CalculatePullAngle(wJets[j], wJets[i], 0);
+                double mass = CalculateInvariantMass(wJets[i], wJets[j]);
                 for (double k = 0; k < Ncuts; ++k) {
                   double cut = (k+1)/Ncuts;
-                  if ((pull_12/Rivet::PI) < cut || (pull_21/Rivet::PI) < cut) {
+                  if (((pull_12/Rivet::PI) < cut || (pull_21/Rivet::PI) < cut) && fabs(mass - 80.4) < 40) {
                     s1_TP[k] += 1;
                   }
-                  if ((pull_12/Rivet::PI) > cut && (pull_21/Rivet::PI) > cut) {
+                  if (((pull_12/Rivet::PI) > cut && (pull_21/Rivet::PI) > cut) || fabs(mass - 80.4) > 40) {
                     s1_TN[k] += 1;
                   }
                 }
@@ -282,12 +280,13 @@ namespace Rivet {
             if (oJets[i].pT() > 80*GeV && oJets[j].pT() > 80*GeV) {
               double pull_12 = CalculatePullAngle(oJets[i], oJets[j], 0);
               double pull_21 = CalculatePullAngle(oJets[j], oJets[i], 0);
+              double mass = CalculateInvariantMass(oJets[i], oJets[j]);
               for (double k = 0; k < Ncuts; ++k) {
                 double cut = (k+1)/Ncuts;
-                if ((pull_12/Rivet::PI) < cut || (pull_21/Rivet::PI) < cut) {
+                if (((pull_12/Rivet::PI) < cut || (pull_21/Rivet::PI) < cut) && fabs(mass - 80.4) < 40) {
                   s1_FP[k] += 1;
                 }
-                if ((pull_12/Rivet::PI) > cut && (pull_21/Rivet::PI) > cut) {
+                if (((pull_12/Rivet::PI) > cut && (pull_21/Rivet::PI) > cut) || fabs(mass - 80.4) > 40) {
                   s1_FN[k] += 1;
                 }
               }
@@ -302,106 +301,6 @@ namespace Rivet {
         if (s1_FP[i] > 0 || s1_FN[i] > 0) {
           s1_FP_efficiency[i] = s1_FP[i]/(s1_FP[i]+s1_FN[i]);
           p_FP_s1->fill(cut, s1_FP_efficiency[i]);
-        }
-      }
-
-      //PULL ANGLE SELECTION 2 (tight):
-      //Reconstructing W from light jets with colour connection information via pull angle 
-      vector<double> s2_Nsignal(Ncuts);
-      vector<double> s2_Nbackground(Ncuts);
-      for (size_t i = 0; i < lJets.size()-1; ++i) { 
-        for (size_t j = i + 1; j < lJets.size(); ++j) {
-          if (lJets[i].pT() > 80*GeV && lJets[j].pT() > 80*GeV) {
-            double pull_12 = CalculatePullAngle(lJets[i], lJets[j], 0);
-            double pull_21 = CalculatePullAngle(lJets[j], lJets[i], 0);
-            for (double k = 0; k < Ncuts; ++k) {
-              double cut = (k+1)/Ncuts;
-              if ((pull_12/Rivet::PI) < cut && (pull_21/Rivet::PI) < cut) {
-                double wpurity_j1 = CalculateWJetPurity(lJets[i]);
-                double wpurity_j2 = CalculateWJetPurity(lJets[j]);
-                if (wpurity_j1 > 0.1 && wpurity_j2 > 0.1) {
-                  s2_Nsignal[k] += 1;
-                }
-                if (wpurity_j1 < 0.1 || wpurity_j2 < 0.1) {
-                  s2_Nbackground[k] += 1;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      vector<double> s2_signal_efficiency(Ncuts);
-      for (double i = 0; i < Ncuts; ++i) {
-        double cut = (i+1)/Ncuts;
-        if (s2_Nsignal[i] > 0 || s2_Nbackground[i] > 0) {
-          s2_signal_efficiency[i] = s2_Nsignal[i]/(s2_Nsignal[i]+s2_Nbackground[i]);
-          p_PT_s2->fill(cut, s2_signal_efficiency[i]);
-        }
-      }
-
-      vector<double> s2_TP(Ncuts);
-      vector<double> s2_TN(Ncuts);
-      if (wJets.size() > 1) {
-        for (size_t i = 0; i < wJets.size()-1; ++i) { 
-          for (size_t j = i + 1; j < wJets.size(); ++j) {
-            if (wJets[i].pT() > 80*GeV && wJets[j].pT() > 80*GeV) {
-              bool same = FromSameW(wJets[i], wJets[j]);
-              if (same) {
-                double pull_12 = CalculatePullAngle(wJets[i], wJets[j], 0);
-                double pull_21 = CalculatePullAngle(wJets[j], wJets[i], 0);
-                for (double k = 0; k < Ncuts; ++k) {
-                  double cut = (k+1)/Ncuts;
-                  if ((pull_12/Rivet::PI) < cut || (pull_21/Rivet::PI) < cut) {
-                    s2_TP[k] += 1;
-                  }
-                  if ((pull_12/Rivet::PI) > cut && (pull_21/Rivet::PI) > cut) {
-                    s2_TN[k] += 1;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-
-      vector<double> s2_TP_efficiency(Ncuts);
-      for (double i = 0; i < Ncuts; ++i) {
-        double cut = (i+1)/Ncuts;
-        if (s2_TP[i] > 0 || s2_TN[i] > 0) {
-          s2_TP_efficiency[i] = s2_TP[i]/(s2_TP[i]+s2_TN[i]);
-          p_TP_s2->fill(cut, s2_TP_efficiency[i]);
-        }
-      }
-
-      vector<double> s2_FP(Ncuts);
-      vector<double> s2_FN(Ncuts);
-      if (oJets.size() > 1) {
-        for (size_t i = 0; i < oJets.size()-1; ++i) { 
-          for (size_t j = i + 1; j < oJets.size(); ++j) {
-            if (oJets[i].pT() > 80*GeV && oJets[j].pT() > 80*GeV) {
-              double pull_12 = CalculatePullAngle(oJets[i], oJets[j], 0);
-              double pull_21 = CalculatePullAngle(oJets[j], oJets[i], 0);
-              for (double k = 0; k < Ncuts; ++k) {
-                double cut = (k+1)/Ncuts;
-                if ((pull_12/Rivet::PI) < cut && (pull_21/Rivet::PI) < cut) {
-                  s2_FP[k] += 1;
-                }
-                if ((pull_12/Rivet::PI) > cut || (pull_21/Rivet::PI) > cut) {
-                  s2_FN[k] += 1;
-                }
-              }
-            }
-          }
-        }
-      }
-
-      vector<double> s2_FP_efficiency(Ncuts);
-      for (double i = 0; i < Ncuts; ++i) {
-        double cut = (i+1)/Ncuts;
-        if (s2_FP[i] > 0 || s2_FN[i] > 0) {
-          s2_FP_efficiency[i] = s2_FP[i]/(s2_FP[i]+s2_FN[i]);
-          p_FP_s2->fill(cut, s2_FP_efficiency[i]);
         }
       }
   
@@ -489,6 +388,18 @@ namespace Rivet {
      }
 
      if (W_j1[0].isSame(W_j2[0])) same = true;
+     if (W_j1.size() > 1) {
+       same = false;
+       if (W_j1[0].isSame(W_j2[0]) && W_j1[1].isSame(W_j2[0])) same = true;
+     }
+     if (W_j2.size() > 1) {
+       same = false;
+       if (W_j1[0].isSame(W_j2[0]) && W_j1[0].isSame(W_j2[1])) same = true;
+     }
+     if (W_j1.size() > 1 && W_j2.size() > 1) {
+       same = false;
+       if (W_j1[0].isSame(W_j2[0]) && W_j1[0].isSame(W_j2[1]) && W_j1[1].isSame(W_j2[0]) && W_j1[1].isSame(W_j2[1])) same = true;
+     }
      return same;
     }
    
@@ -515,10 +426,6 @@ namespace Rivet {
     Profile1DPtr p_PT_s1;
     Profile1DPtr p_TP_s1;
     Profile1DPtr p_FP_s1;
-    Profile1DPtr p_PT_s2;
-    Profile1DPtr p_TP_s2;
-    Profile1DPtr p_FP_s2;
-
   };
 
 
